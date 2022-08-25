@@ -1,6 +1,6 @@
-local opts = {noremap = true, silent=true}
+local opts = { noremap = true, silent = true }
 
-local term_opts = {silent = true }
+local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap
 
@@ -13,10 +13,10 @@ vim.g.maplocalleader = " "
 keymap("n", "<C-s>", ":w<CR>", opts)
 
 -- Window Navigation
-keymap("n", "C-h", "<C-w>h", opts)
-keymap("n", "C-j", "<C-w>j", opts)
-keymap("n", "C-k", "<C-w>k", opts)
-keymap("n", "C-l", "<C-w>l", opts)
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Move Text Up and Down
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
@@ -40,4 +40,3 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-

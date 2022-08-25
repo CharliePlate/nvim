@@ -34,7 +34,7 @@ end
 packer.init({
 	display = {
 		open_fn = function()
-			return require("packer.util").float({ boarder = rounded })
+			return require("packer.util").float({ border = "rounded" })
 		end,
 	},
 })
@@ -52,6 +52,9 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
 	use("p00f/nvim-ts-rainbow")
 
+	-- git
+	use("kdheepak/lazygit.nvim")
+
 	-- Snippits
 	use("L3MON4D3/LuaSnip")
 
@@ -68,4 +71,11 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use("lukas-reineke/lsp-format.nvim")
+	use("folke/trouble.nvim")
+
+	-- Terminal
+	use("akinsho/toggleterm.nvim")
+
+	-- Which Key
+	use("folke/which-key.nvim")
 end)
