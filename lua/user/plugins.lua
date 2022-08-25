@@ -38,7 +38,6 @@ packer.init {
       return require("packer.util").float {boarder = rounded}
     end,
   }, 
-    compile_path = vim.fn.stdpath 'data' .. '/site/pack/loader/start/packer.nvim/plugin/packer.lua',
 }
 
 --Install your plugins here
