@@ -47,7 +47,8 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
 	use("Shatur/neovim-ayu") -- colorscheme
 	use("nvim-lualine/lualine.nvim") -- lualine
-
+	use("lewis6991/impatient.nvim")
+	use("akinsho/bufferline.nvim")
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
 	use("p00f/nvim-ts-rainbow")
