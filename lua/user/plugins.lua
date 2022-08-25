@@ -31,7 +31,7 @@ if not status_ok then
 end
 
 
--- Have packer use a popp window
+-- Have packer use a pop window
 packer.init {
   display = {
     open_fn = function()
@@ -43,11 +43,27 @@ packer.init {
 --Install your plugins here
 return packer.startup(function(use)
   --My plugins here
-  use "wbthomason/packer.nvim"
-  use "jiangmiao/auto-pairs"
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-    'kyazdani42/nvim-web-devicons', -- optional, for file icons
-  }}
+  use "wbthomason/packer.nvim" -- Packer manages itself
+  use "windwp/nvim-autopairs" -- Auto Pairs
+  use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}} -- nvim tree
+  use "Shatur/neovim-ayu" -- colorscheme
+  use "nvim-lualine/lualine.nvim" -- lualine
+
+  -- Treesitter
+  use {"nvim-treesitter/nvim-treesitter", run="TSUpdate"}
+  use "p00f/nvim-ts-rainbow"
+
+  -- Completions
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "saadparwaiz1/cmp_luasnip"
+  use "hrsh7th/cmp-nvim-lsp"
+
+  -- LSP
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
+  use {"jose-elias-alvarez/null-ls.nvim", requires = {'nvim-lua/plenary.nvim'}}    
+  use "lukas-reineke/lsp-format.nvim"
 end)
