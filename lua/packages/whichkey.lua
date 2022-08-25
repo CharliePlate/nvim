@@ -95,10 +95,7 @@ local mappings = {
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
-	g = {
-		name = "Git",
-		g = { "<cmd>lua=_LAZYGIT_TOGGLE()<cr>", "Lazygit" },
-	},
+	g = { "<cmd>lua=_LAZYGIT_TOGGLE()<cr>", "Lazygit" },
 
 	l = {
 		name = "LSP",

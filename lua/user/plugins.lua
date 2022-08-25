@@ -78,4 +78,5 @@ return packer.startup(function(use)
 
 	-- Which Key
 	use("folke/which-key.nvim")
+	use("moll/vim-bbye")
 end)

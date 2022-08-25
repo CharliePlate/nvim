@@ -14,7 +14,7 @@ configs.setup({
 		enable = true,
 	},
 	indent = { enable = true, disable = { "python", "css" } },
-  rainbow = {
-    enable = true
-  }
+	rainbow = {
+		enable = true,
+	},
 })
