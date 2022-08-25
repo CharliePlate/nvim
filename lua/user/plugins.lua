@@ -38,10 +38,17 @@ packer.init {
       return require("packer.util").float {boarder = rounded}
     end,
   }, 
+    compile_path = vim.fn.stdpath 'data' .. '/site/pack/loader/start/packer.nvim/plugin/packer.lua',
 }
 
 --Install your plugins here
 return packer.startup(function(use)
   --My plugins here
   use "wbthomason/packer.nvim"
+  use "jiangmiao/auto-pairs"
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+    'kyazdani42/nvim-web-devicons', -- optional, for file icons
+  }}
 end)

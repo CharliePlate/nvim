@@ -1,3 +1,5 @@
 require("user/settings")
 require("user/keymaps")
 require("user/plugins")
+require("packages/auto-pair")
+require("packages/nvim-tree")
