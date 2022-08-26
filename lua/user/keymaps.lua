@@ -27,7 +27,6 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
 -- Insert
 -- jk to get exit insert mode
 keymap("i", "jk", "<Esc>", opts)
