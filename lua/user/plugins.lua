@@ -45,13 +45,17 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Packer manages itself
 	use("windwp/nvim-autopairs") -- Auto Pairs
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
-	use("Shatur/neovim-ayu") -- colorscheme
 	use("nvim-lualine/lualine.nvim") -- lualine
 	use("lewis6991/impatient.nvim")
 	use("akinsho/bufferline.nvim")
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
 
+	use("ggandor/lightspeed.nvim")
+	-- Colorscheme
+	use("Shatur/neovim-ayu")
+	use("ray-x/aurora")
+	use("tiagovla/tokyodark.nvim")
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
 	use("p00f/nvim-ts-rainbow")
@@ -76,6 +80,7 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use("lukas-reineke/lsp-format.nvim")
 	use("folke/trouble.nvim")
+	use("ray-x/lsp_signature.nvim")
 
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
