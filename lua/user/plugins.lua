@@ -51,11 +51,10 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
 
-	use("ggandor/lightspeed.nvim")
 	-- Colorscheme
 	use("Shatur/neovim-ayu")
 	use("ray-x/aurora")
-	use("tiagovla/tokyodark.nvim")
+
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
 	use("p00f/nvim-ts-rainbow")
