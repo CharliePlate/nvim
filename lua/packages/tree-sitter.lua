@@ -5,6 +5,10 @@ end
 
 configs.setup({
 	ensure_installed = "all", -- one of "all" or a list of languages
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension

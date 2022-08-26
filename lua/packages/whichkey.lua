@@ -20,7 +20,7 @@ local setup = {
 			windows = true, -- default bindings on <c-w>
 			nav = true, -- misc bindings to work with windows
 			z = true, -- bindings for folds, spelling and others prefixed with z
-			g = true, -- bindings for prefixed with g
+			g = false, -- bindings for prefixed with g
 		},
 	},
 	-- add operators that will trigger motion and text object completion
@@ -81,11 +81,11 @@ local opts = {
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["/"] = { "gcc", "Comment" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-
 	p = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },

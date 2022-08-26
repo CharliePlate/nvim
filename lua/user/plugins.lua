@@ -80,4 +80,8 @@ return packer.startup(function(use)
 	-- Which Key
 	use("folke/which-key.nvim")
 	use("moll/vim-bbye")
+
+	-- Comments
+	use("numToStr/Comment.nvim")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 end)
