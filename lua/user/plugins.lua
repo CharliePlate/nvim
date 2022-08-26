@@ -49,6 +49,9 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim") -- lualine
 	use("lewis6991/impatient.nvim")
 	use("akinsho/bufferline.nvim")
+	use("nvim-telescope/telescope.nvim")
+	use("ahmedkhalf/project.nvim")
+
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
 	use("p00f/nvim-ts-rainbow")

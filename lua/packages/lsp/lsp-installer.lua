@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-local lspconfig = require("lspconfig")
-
 local servers = { "jsonls", "sumneko_lua" }
 
 lsp_installer.setup({
@@ -20,5 +18,5 @@ for _, server in pairs(servers) do
 	if has_custom_opts then
 		opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
 	end
-	lspconfig[server].setup(opts)
+	require("lspconfig")[server].setup(opts)
 end
