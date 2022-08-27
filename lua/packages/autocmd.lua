@@ -16,5 +16,4 @@ vim.cmd([[
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
   augroup end
-
 ]])
