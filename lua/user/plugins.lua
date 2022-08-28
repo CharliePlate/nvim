@@ -61,12 +61,17 @@ return packer.startup(function(use)
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
 	use("p00f/nvim-ts-rainbow")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- git
 	use("kdheepak/lazygit.nvim")
 	use("lewis6991/gitsigns.nvim")
+
 	-- Snippits
 	use("L3MON4D3/LuaSnip")
+
+	-- Surround
+	use("kylechui/nvim-surround")
 
 	-- Completions
 	use("hrsh7th/nvim-cmp")
