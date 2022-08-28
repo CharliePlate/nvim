@@ -90,6 +90,13 @@ local mappings = {
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 
+	d = {
+		name = "Diagnostics",
+		k = { "<cmd>lua vim.diagnostic.open_float()<CR>", "View Diagnostic" },
+		h = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Prev Diagnostic" },
+		l = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+	},
+
 	p = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },

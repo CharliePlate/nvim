@@ -44,6 +44,8 @@ local kind_icons = {
 	TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
+
+local compare = require("cmp.config.compare")
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -118,9 +120,33 @@ cmp.setup({
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
+	sorting = {
+		priority_weight = 2,
+		comparators = {
+			-- require("copilot_cmp.comparators").prioritize,
+			-- require("copilot_cmp.comparators").score,
+			compare.offset,
+			compare.exact,
+			-- compare.scopes,
+			compare.score,
+			compare.recently_used,
+			compare.locality,
+			-- compare.kind,
+			compare.sort_text,
+			compare.length,
+			compare.order,
+			-- require("copilot_cmp.comparators").prioritize,
+			-- require("copilot_cmp.comparators").score,
+		},
+	},
 	window = {
 		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			border = "rounded",
+			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+		},
+		completion = {
+			border = "rounded",
+			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 		},
 	},
 	experimental = {

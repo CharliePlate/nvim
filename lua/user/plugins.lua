@@ -43,15 +43,19 @@ packer.init({
 return packer.startup(function(use)
 	--My plugins here
 	use("wbthomason/packer.nvim") -- Packer manages itself
-	use("windwp/nvim-autopairs") -- Auto Pairs
+
+	-- UI
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
-	use("nvim-lualine/lualine.nvim") -- lualine
-	use("lewis6991/impatient.nvim")
 	use("akinsho/bufferline.nvim")
+	use("nvim-lualine/lualine.nvim") -- lualine
+	use("ellisonleao/glow.nvim")
+	use("RRethy/vim-illuminate")
+	-- Util
+	use("ggandor/lightspeed.nvim")
+	use("windwp/nvim-autopairs") -- Auto Pairs
+	use("lewis6991/impatient.nvim")
 	use("nvim-telescope/telescope.nvim")
 	use("ahmedkhalf/project.nvim")
-	use("ggandor/lightspeed.nvim")
-	use("mfussenegger/nvim-lint")
 
 	-- Colorscheme
 	use("Shatur/neovim-ayu")

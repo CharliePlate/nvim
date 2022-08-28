@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local servers = { "jsonls", "sumneko_lua" }
+local servers = { "jsonls", "sumneko_lua", "tsserver" }
 
 lsp_installer.setup({
 	ensure_installed = servers,

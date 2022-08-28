@@ -12,10 +12,11 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
+		formatting.prettier.with({
+			extra_args = { "--single-quote", "--jsx-single-quote", "--use-tabs" },
+		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		diagnostics.flake8,
 		diagnostics.eslint_d,
 	},
 	on_attach = function(client, bufnr)
@@ -25,7 +26,6 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
 					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})

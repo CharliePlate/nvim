@@ -84,7 +84,8 @@ M.on_attach = function(client, bufnr)
 	-- vim.notify(client.name .. " starting...")
 	-- TODO: refactor this into a method that checks if string in list
 	if client.name == "tsserver" then
-		client.resolved_capabilities.document_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
+		vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
