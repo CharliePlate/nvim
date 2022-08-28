@@ -78,29 +78,12 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-local vopts = {
-	mode = "v", -- VISUAL mode
-	prefix = "<leader>",
-	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-	silent = true, -- use `silent` when creating keymaps
-	noremap = true, -- use `noremap` when creating keymaps
-	nowait = true, -- use `nowait` when creating keymaps
-}
-
-local vmappings = {
-	["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment" },
-}
-
 local mappings = {
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["w"] = { "<cmd>w!<CR>", "Save" },
-	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["k"] = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
-
 	["f"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Find files",
@@ -116,32 +99,25 @@ local mappings = {
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
-	g = { "<cmd>lua=_LAZYGIT_TOGGLE()<cr>", "Lazygit" },
+	g = {
+		name = "git",
+		g = {
+			"<cmd>lua=_LAZYGIT_TOGGLE()<cr>",
+			"Lazygit",
+		},
+		b = {
+			"<cmd>Gitsigns toggle_current_line_blame<cr>",
+			"Toggle Blame",
+		},
+	},
 
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		d = {
-			"<cmd>Telescope lsp_document_diagnostics<cr>",
-			"Document Diagnostics",
-		},
-		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
 		f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-		j = {
-			"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-			"Next Diagnostic",
-		},
-		k = {
-			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-			"Prev Diagnostic",
-		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
@@ -149,6 +125,7 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
+
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -169,9 +146,14 @@ local mappings = {
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		y = {
+			name = "Yarn",
+			o = { "<cmd>10ToggleTerm<cr>", "Open Yarn Terminal" },
+			s = { "<cmd>10TermExec cmd='yarn start'<cr><cmd>10ToggleTerm<cr>", "Start" },
+			t = { "<cmd>10TermExec cmd='yarn test'<cr><cmd>10ToggleTerm<cr>", "Test" },
+		},
 	},
 }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)

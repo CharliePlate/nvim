@@ -64,7 +64,7 @@ return packer.startup(function(use)
 
 	-- git
 	use("kdheepak/lazygit.nvim")
-
+	use("lewis6991/gitsigns.nvim")
 	-- Snippits
 	use("L3MON4D3/LuaSnip")
 
