@@ -60,17 +60,17 @@ end
 
 lualine.setup({
 	options = {
-		icons_enabled = true,
-		theme = "material",
-		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
+		icons_enabled = true,
+		theme = "gruvbox-baby",
+		component_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = { mode },
 		lualine_b = { branch, diagnostics },
-		lualine_c = {},
+		lualine_c = { require("auto-session-library").current_session_name },
 		lualine_x = { diff, filetype },
 		lualine_y = { location },
 		lualine_z = { progress },

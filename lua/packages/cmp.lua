@@ -197,15 +197,14 @@ cmp.setup({
 	sorting = {
 		priority_weight = 2,
 		comparators = {
-			-- require("cmp_tabnine.compare"),
-			compare.offset,
-			compare.exact,
-			compare.score,
-			compare.recently_used,
 			compare.locality,
+			compare.recently_used,
+			compare.score,
+			compare.offset,
+			compare.order,
+			compare.exact,
 			compare.sort_text,
 			compare.length,
-			compare.order,
 		},
 	},
 	confirm_opts = {
@@ -213,11 +212,10 @@ cmp.setup({
 		select = false,
 	},
 	window = {
-		documentation = false,
-		-- documentation = {
-		--   border = "rounded",
-		--   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-		-- },
+		documentation = {
+			border = "rounded",
+			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+		},
 		completion = {
 			border = "rounded",
 			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",

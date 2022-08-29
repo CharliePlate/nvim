@@ -64,6 +64,7 @@ return packer.startup(function(use)
 	use("Shatur/neovim-ayu")
 	use("tiagovla/tokyodark.nvim")
 	use("marko-cerovac/material.nvim")
+	use("luisiacc/gruvbox-baby")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
