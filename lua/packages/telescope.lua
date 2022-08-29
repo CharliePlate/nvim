@@ -17,13 +17,22 @@ telescope.setup({
 				["<C-n>"] = actions.cycle_history_next,
 				["<C-p>"] = actions.cycle_history_prev,
 
-				["<C-j>"] = actions.move_selection_next,
-				["<C-k>"] = actions.move_selection_previous,
+				["<C-j>"] = {
+					actions.move_selection_next,
+					type = "action",
+					opts = { nowait = true, silent = true },
+				},
+				["<C-k>"] = {
+
+					actions.move_selection_previous,
+					type = "action",
+					opts = { nowait = true, silent = true },
+				},
 
 				["<C-c>"] = actions.close,
 
-				["<Down>"] = actions.move_selection_next,
-				["<Up>"] = actions.move_selection_previous,
+				-- ["<Down>"] = actions.move_selection_next,
+				-- ["<Up>"] = actions.move_selection_previous,
 
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,

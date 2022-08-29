@@ -8,7 +8,6 @@ vim.g.maplocalleader = " "
 -- Normal Mode
 -- Save on ctrl-s
 keymap("n", "<C-s>", ":w<CR>", opts)
-keymap("t", "<Esc", "<Nop>", opts)
 
 -- Window Navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -32,6 +31,10 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Insert
 -- jk to get exit insert mode
 keymap("i", "jk", "<Esc>", opts)
+
+-- Remove C-j and C-k for telescope
+keymap("i", "<C-j>", "<Nop>", opts)
+keymap("i", "<C-k>", "<Nop>", opts)
 
 -- Visual
 -- Stay in indent mode
