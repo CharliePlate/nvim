@@ -81,7 +81,7 @@ local opts = {
 local mappings = {
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["k"] = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
 	["f"] = {
@@ -89,6 +89,12 @@ local mappings = {
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+
+	c = {
+		name = "Close",
+		b = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+		w = { "<cmd>hide<CR>", "Close Window" },
+	},
 
 	d = {
 		name = "Diagnostics",

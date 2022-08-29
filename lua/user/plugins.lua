@@ -43,6 +43,7 @@ packer.init({
 return packer.startup(function(use)
 	--My plugins here
 	use("wbthomason/packer.nvim") -- Packer manages itself
+	use("nvim-lua/popup.nvim")
 
 	-- UI
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
@@ -50,6 +51,7 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim") -- lualine
 	use("ellisonleao/glow.nvim")
 	use("RRethy/vim-illuminate")
+
 	-- Util
 	use("ggandor/lightspeed.nvim")
 	use("windwp/nvim-autopairs") -- Auto Pairs
@@ -73,7 +75,7 @@ return packer.startup(function(use)
 
 	-- Snippits
 	use("L3MON4D3/LuaSnip")
-
+	use("rafamadriz/friendly-snippets")
 	-- Surround
 	use("kylechui/nvim-surround")
 
@@ -84,6 +86,11 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("saadparwaiz1/cmp_luasnip")
 	use("hrsh7th/cmp-nvim-lsp")
+	use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+
+	-- Sessions
+	use("rmagatti/auto-session")
+	use("rmagatti/session-lens")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")

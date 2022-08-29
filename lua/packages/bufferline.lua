@@ -14,5 +14,6 @@ bufferline.setup({
 				separator = true, -- use a "true" to enable the default, or set your own character
 			},
 		},
+		separator_style = "slant",
 	},
 })
