@@ -164,9 +164,8 @@ local mappings = {
 			name = "Yarn",
 			o = { "<cmd>10ToggleTerm<cr>", "Open Yarn Terminal" },
 			s = { "<cmd>10TermExec cmd='yarn start'<cr><cmd>10ToggleTerm<cr>", "Start" },
-			t = { "<cmd>10TermExec cmd='yarn test'<cr><cmd>10ToggleTerm<cr>", "Test" },
 		},
-		r = { "<cmd>RunCode<cr>", "Run Code" },
+		r = { "<cmd>RunFile toggleterm<cr>", "Run Code" },
 	},
 }
 

@@ -6,6 +6,6 @@ end
 code_runner.setup({
 	filetype = {
 		python = "python3 -u",
-		typescript = "ts-node-dev",
+		typescript = "ts-node-dev --respawn",
 	},
 })
