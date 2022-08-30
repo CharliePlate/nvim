@@ -67,6 +67,6 @@ nvim_tree.setup({
 		},
 	},
 	filters = {
-		custom = { ".git", "/build" },
+		custom = { ".git/", "/build" },
 	},
 })
