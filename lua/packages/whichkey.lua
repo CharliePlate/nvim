@@ -89,12 +89,8 @@ local mappings = {
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-
-	c = {
-		name = "Close",
-		b = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-		w = { "<cmd>hide<CR>", "Close Window" },
-	},
+	["x"] = { "<cmd>Bdelete<cr>", "Close Buffer" },
+	["w"] = { "<cmd>hide<CR>", "Close Window" },
 
 	d = {
 		name = "Diagnostics",
