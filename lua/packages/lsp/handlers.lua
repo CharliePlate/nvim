@@ -81,8 +81,6 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-	-- vim.notify(client.name .. " starting...")
-	-- TODO: refactor this into a method that checks if string in list
 	if client.name == "tsserver" or client.name == "eslint" then
 		client.server_capabilities.documentFormattingProvider = false
 	end

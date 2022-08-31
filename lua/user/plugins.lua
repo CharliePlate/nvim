@@ -66,12 +66,12 @@ return packer.startup(function(use)
 	use("tiagovla/tokyodark.nvim")
 	use("marko-cerovac/material.nvim")
 	use("luisiacc/gruvbox-baby")
-	use("catppuccin/nvim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
 	use("p00f/nvim-ts-rainbow")
 	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use("nvim-treesitter/nvim-treesitter-context")
 
 	-- git
 	use("kdheepak/lazygit.nvim")
