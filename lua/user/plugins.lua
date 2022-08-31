@@ -105,6 +105,7 @@ return packer.startup(function(use)
 	use("lukas-reineke/lsp-format.nvim")
 	use("folke/trouble.nvim")
 	use("ray-x/lsp_signature.nvim")
+	use("Maan2003/lsp_lines.nvim")
 
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
