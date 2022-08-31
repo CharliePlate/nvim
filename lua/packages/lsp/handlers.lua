@@ -56,14 +56,6 @@ local function lsp_highlight_document(client)
 	-- end
 end
 
-local function attach_navic(client, bufnr)
-	local status_ok, navic = pcall(require, "nvim-navic")
-	if not status_ok then
-		return
-	end
-	navic.attach(client, bufnr)
-end
-
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -94,7 +86,7 @@ M.on_attach = function(client, bufnr)
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
-	attach_navic(client, bufnr)
+	dofile("/home/yaboi/.config/nvim/lua/packages/navic.lua").attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -105,5 +97,5 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 return M

@@ -10,4 +10,5 @@
 --
 --
 -- vim.cmd("colorscheme gruvbox-baby")
+
 vim.cmd("colorscheme kanagawa")
