@@ -80,6 +80,7 @@ return packer.startup(function(use)
 	-- Snippits
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
+
 	-- Surround
 	use("kylechui/nvim-surround")
 
