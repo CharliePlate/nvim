@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	use("ellisonleao/glow.nvim")
 	use("RRethy/vim-illuminate")
 	use("fgheng/winbar.nvim")
+	use("matbme/JABS.nvim")
 
 	-- Util
 	use("ggandor/lightspeed.nvim")
