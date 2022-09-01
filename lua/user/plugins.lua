@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim") -- lualine
 	use("ellisonleao/glow.nvim")
 	use("RRethy/vim-illuminate")
+	use("fgheng/winbar.nvim")
 
 	-- Util
 	use("ggandor/lightspeed.nvim")

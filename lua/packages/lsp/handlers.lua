@@ -85,7 +85,7 @@ M.on_attach = function(client, bufnr)
 	end
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
-	dofile("/home/yaboi/.config/nvim/lua/packages/navic.lua").attach(client, bufnr)
+	require("nvim-navic").attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -96,5 +96,4 @@ if not status_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 return M
