@@ -32,7 +32,7 @@ navic.setup({
 		Operator = " ",
 		TypeParameter = " ",
 	},
-	highlight = false,
+	highlight = true,
 	separator = " " .. require("packages.icons").ui.ChevronRight .. " ",
 	depth_limit = 0,
 	depth_limit_indicator = "..",
