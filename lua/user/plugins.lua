@@ -81,28 +81,37 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 
 	-- Snippits
-	use("L3MON4D3/LuaSnip")
-	use("rafamadriz/friendly-snippets")
 
 	-- Surround
 	use("kylechui/nvim-surround")
-
-	-- Completions
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("saadparwaiz1/cmp_luasnip")
-	use("hrsh7th/cmp-nvim-lsp")
-	use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
 	-- Sessions
 	use("rmagatti/auto-session")
 	use("rmagatti/session-lens")
 
 	-- LSP
-	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer")
+	use({
+		"VonHeikemen/lsp-zero.nvim",
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+
+			-- Autocompletion
+			{"hrsh7th/cmp-cmdline"},
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
+
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
+		},
+	})
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use("lukas-reineke/lsp-format.nvim")
 	use("folke/trouble.nvim")
@@ -120,4 +129,5 @@ return packer.startup(function(use)
 	-- Comments
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+
 end)

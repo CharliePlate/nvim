@@ -14,7 +14,7 @@ nvim_tree.setup({
 	open_on_setup = true,
 	update_focused_file = {
 		enable = true,
-		update_cwd = true,
+		update_cwd = false,
 	},
 	renderer = {
 		root_folder_modifier = ":t",
@@ -48,8 +48,8 @@ nvim_tree.setup({
 		enable = true,
 		show_on_dirs = true,
 		icons = {
-			hint = "",
-			info = "",
+			hint = "",
+			info = "",
 			warning = "",
 			error = "",
 		},

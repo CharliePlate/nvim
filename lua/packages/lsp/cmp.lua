@@ -7,11 +7,6 @@ if not snip_status_ok then
 	return
 end
 
-local tabnine_status_ok, _ = pcall(require, "packages.tabnine")
-if not tabnine_status_ok then
-	return
-end
-
 local buffer_fts = {
 	"markdown",
 	"toml",
@@ -47,7 +42,7 @@ vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
 
 vim.g.cmp_active = true
 
-cmp.setup({
+local M = {
 	enabled = function()
 		local buftype = vim.api.nvim_buf_get_option(0, "buftype")
 		if buftype == "prompt" then
@@ -224,7 +219,8 @@ cmp.setup({
 	experimental = {
 		ghost_text = true,
 	},
-})
+}
+
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({
@@ -233,3 +229,5 @@ cmp.setup.cmdline(":", {
 		{ name = "cmdline" },
 	}),
 })
+
+return M
