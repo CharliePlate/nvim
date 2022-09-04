@@ -112,7 +112,7 @@ return packer.startup(function(use)
 	use("ray-x/lsp_signature.nvim")
 	use("SmiteshP/nvim-navic")
 	use("Maan2003/lsp_lines.nvim")
-
+	use("b0o/SchemaStore.nvim")
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
 

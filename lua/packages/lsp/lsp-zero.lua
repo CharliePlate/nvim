@@ -19,8 +19,8 @@ lsp.set_preferences({
 	}
 })
 
-lsp.configure('jsonls', require('packages.lsp.settings.jsonls'))
 lsp.configure('sumneko_lua', require('packages.lsp.settings.sumneko_lua'))
+lsp.configure('jsonls', require('packages.lsp.settings.jsonls'))
 
 local f = require("packages.lsp.lsp_functions")
 
@@ -32,6 +32,6 @@ end
 )
 
 local cmp_config = lsp.defaults.cmp_config(require('packages.lsp.cmp'))
-
 cmp.setup(cmp_config)
+
 lsp.setup()
