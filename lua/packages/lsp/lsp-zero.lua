@@ -19,6 +19,12 @@ lsp.set_preferences({
 	}
 })
 
+local servers = { 'sumneko_lua', 'jsonls' }
+
+for _, v in ipairs(servers) do
+	lsp.configure(v, require('packages.lsp.settings.' .. v))
+end
+
 lsp.configure('sumneko_lua', require('packages.lsp.settings.sumneko_lua'))
 lsp.configure('jsonls', require('packages.lsp.settings.jsonls'))
 

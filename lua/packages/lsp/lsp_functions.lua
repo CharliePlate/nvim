@@ -22,6 +22,8 @@ local format = function(bufnr)
 				sumneko_lua = 'stylua',
 				pylsp = 'black'
 			}
+			print('here')
+			print(M[client['name']])
 			return (M[client['name']])
 		end,
 		bufnr = bufnr,
@@ -47,7 +49,7 @@ local M = {
 	navic = navic,
 	lsp_highlight_document = lsp_highlight_document,
 	format = format,
-	format_on_save_attach = format_on_save_attach
+	format_on_save_attach = format_on_save_attach,
 }
 
 return M

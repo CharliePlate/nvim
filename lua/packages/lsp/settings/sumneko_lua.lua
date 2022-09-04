@@ -7,7 +7,7 @@ return {
 				-- castNumberToInteger = true,
 			},
 			format = {
-				enable = false,
+				enable = true,
 			},
 			hint = {
 				enable = true,
@@ -27,6 +27,10 @@ return {
 			},
 			diagnostics = {
 				globals = { "vim" },
+				disable = {
+					"different-requires",
+				}
+
 			},
 			workspace = {
 				library = {
