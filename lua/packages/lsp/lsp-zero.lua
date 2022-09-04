@@ -10,6 +10,15 @@ end
 
 lsp.preset('lsp-only')
 
+lsp.set_preferences({
+	sign_icons = {
+		error = '✘',
+		warn = '▲',
+		hint = '',
+		info = ''
+	}
+})
+
 lsp.configure('jsonls', require('packages.lsp.settings.jsonls'))
 lsp.configure('sumneko_lua', require('packages.lsp.settings.sumneko_lua'))
 
