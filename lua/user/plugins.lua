@@ -51,7 +51,6 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim") -- lualine
 	use("ellisonleao/glow.nvim")
 	use("RRethy/vim-illuminate")
-	use("matbme/JABS.nvim")
 
 	-- Util
 	use("lewis6991/impatient.nvim")
