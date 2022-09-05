@@ -7,7 +7,7 @@ return {
 				-- castNumberToInteger = true,
 			},
 			format = {
-				enable = true,
+				enable = false,
 			},
 			hint = {
 				enable = true,
@@ -29,13 +29,12 @@ return {
 				globals = { "vim" },
 				disable = {
 					"different-requires",
-				}
-
+				},
 			},
 			workspace = {
 				library = {
-					[vim.fn.expand "$VIMRUNTIME/lua"] = true,
-					[vim.fn.stdpath "config" .. "/lua"] = true,
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
 					-- [vim.fn.datapath "config" .. "/lua"] = true,
 				},
 			},

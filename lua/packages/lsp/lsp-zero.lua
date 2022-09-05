@@ -8,7 +8,7 @@ if not cmp_status_ok then
 	return
 end
 
-lsp.preset('lsp-only')
+lsp.preset('lsp-compe')
 
 lsp.set_preferences({
 	sign_icons = {
@@ -25,9 +25,6 @@ for _, v in ipairs(servers) do
 	lsp.configure(v, require('packages.lsp.settings.' .. v))
 end
 
-lsp.configure('sumneko_lua', require('packages.lsp.settings.sumneko_lua'))
-lsp.configure('jsonls', require('packages.lsp.settings.jsonls'))
-
 local f = require("packages.lsp.lsp_functions")
 
 lsp.on_attach(function(client, bufnr)
@@ -39,5 +36,6 @@ end
 
 local cmp_config = lsp.defaults.cmp_config(require('packages.lsp.cmp'))
 cmp.setup(cmp_config)
+
 
 lsp.setup()

@@ -2,6 +2,7 @@ local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
 	return
 end
+
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
 	return
@@ -89,7 +90,7 @@ local M = {
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<Right>"] = cmp.mapping.confirm({ select = true }),
 		["<Tab>"] = cmp.mapping.confirm({ select = true }),
-		["<S-Tab>"] = cmp.mapping.confirm({ select = true })
+		["<S-Tab>"] = cmp.mapping.confirm({ select = true }),
 	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },

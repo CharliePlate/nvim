@@ -17,14 +17,7 @@ end
 local format = function(bufnr)
 	vim.lsp.buf.format({
 		filter = function(client)
-			local M = {
-				tsserver = 'prettier',
-				sumneko_lua = 'stylua',
-				pylsp = 'black'
-			}
-			print('here')
-			print(M[client['name']])
-			return (M[client['name']])
+			return client.name == "null-ls"
 		end,
 		bufnr = bufnr,
 	})
