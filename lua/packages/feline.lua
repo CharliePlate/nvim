@@ -134,7 +134,7 @@ components.active[1][2] = {
 -- filename
 components.active[1][3] = {
   provider = function()
-    return vim.fn.expand("%:F")
+    return vim.fn.expand("%:.")
   end,
   hl = {
     fg = 'white',
@@ -145,16 +145,16 @@ components.active[1][3] = {
 -- MID
 
 -- gitBranch
-components.active[2][1] = {
+components.active[3][1] = {
   provider = 'git_branch',
   hl = {
-    fg = 'yellow',
+	fg = 'yellow',
     bg = 'bg',
     style = 'bold'
-  }
+  },
 }
 -- diffAdd
-components.active[2][2] = {
+components.active[3][2] = {
   provider = 'git_diff_added',
   hl = {
     fg = 'green',
@@ -163,7 +163,7 @@ components.active[2][2] = {
   }
 }
 -- diffModfified
-components.active[2][3] = {
+components.active[3][3] = {
   provider = 'git_diff_changed',
   hl = {
     fg = 'orange',
@@ -172,7 +172,7 @@ components.active[2][3] = {
   }
 }
 -- diffRemove
-components.active[2][4] = {
+components.active[3][4] = {
   provider = 'git_diff_removed',
   hl = {
     fg = 'red',
@@ -184,7 +184,7 @@ components.active[2][4] = {
 -- RIGHT
 
 -- fileIcon
-components.active[3][1] = {
+components.active[3][5] = {
   provider = function()
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
@@ -208,10 +208,11 @@ components.active[3][1] = {
     val.style = 'bold'
     return val
   end,
+left_sep = "  >  ",
   right_sep = ' '
 }
 -- fileType
-components.active[3][2] = {
+components.active[3][6] = {
   provider = 'file_type',
   hl = function()
     local val = {}
@@ -227,10 +228,10 @@ components.active[3][2] = {
     val.style = 'bold'
     return val
   end,
-  right_sep = ' '
+  right_sep = ' >'
 }
 -- fileSize
-components.active[3][3] = {
+components.active[3][7] = {
   provider = 'file_size',
   enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
   hl = {
@@ -238,29 +239,11 @@ components.active[3][3] = {
     bg = 'bg',
     style = 'bold'
   },
-  right_sep = ' '
+  right_sep = ' >'
 }
 -- fileFormat
-components.active[3][4] = {
-  provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
--- fileEncode
-components.active[3][5] = {
-  provider = 'file_encoding',
-  hl = {
-    fg = 'white',
-    bg = 'bg',
-    style = 'bold'
-  },
-  right_sep = ' '
-}
-components.active[3][6] = {
+
+components.active[3][8] = {
   provider = 'position',
   hl = {
     fg = 'white',
@@ -270,7 +253,7 @@ components.active[3][6] = {
   right_sep = ' '
 }
 -- linePercent
-components.active[3][7] = {
+components.active[3][9] = {
   provider = 'line_percentage',
   hl = {
     fg = 'white',
@@ -280,7 +263,7 @@ components.active[3][7] = {
   right_sep = ' '
 }
 -- scrollBar
-components.active[3][8] = {
+components.active[3][10] = {
   provider = 'scroll_bar',
   hl = {
     fg = 'yellow',
@@ -327,7 +310,8 @@ winbar_components.active[1][1] = {
   hl = {
     fg = 'orange',
     style = 'bold'
-  }
+  },
+	left_sep="   "
 }
 
 -- MID
