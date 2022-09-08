@@ -4,5 +4,5 @@ if not status_ok then
 end
 
 trouble.setup({
-	mode = "document_diagnostics"
+	mode = "document_diagnostics",
 })

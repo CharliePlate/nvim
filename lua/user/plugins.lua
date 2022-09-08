@@ -49,7 +49,7 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
 	use("akinsho/bufferline.nvim")
 	-- use("nvim-lualine/lualine.nvim") -- lualine
-use("feline-nvim/feline.nvim")
+	use("feline-nvim/feline.nvim")
 	use("RRethy/vim-illuminate")
 
 	-- Util
@@ -126,5 +126,4 @@ use("feline-nvim/feline.nvim")
 	-- Comments
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-
 end)
