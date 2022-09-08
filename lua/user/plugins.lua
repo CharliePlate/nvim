@@ -47,8 +47,6 @@ return packer.startup(function(use)
 
 	-- UI
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
-	use("akinsho/bufferline.nvim")
-	-- use("nvim-lualine/lualine.nvim") -- lualine
 	use("feline-nvim/feline.nvim")
 	use("RRethy/vim-illuminate")
 
@@ -63,8 +61,6 @@ return packer.startup(function(use)
 
 	-- Colorscheme
 	use("Shatur/neovim-ayu")
-	use("tiagovla/tokyodark.nvim")
-	use("marko-cerovac/material.nvim")
 	use("luisiacc/gruvbox-baby")
 	use("rebelot/kanagawa.nvim")
 
@@ -114,7 +110,6 @@ return packer.startup(function(use)
 	use("SmiteshP/nvim-navic")
 	use("Maan2003/lsp_lines.nvim")
 	use("b0o/SchemaStore.nvim")
-	use("lvimuser/lsp-inlayhints.nvim")
 
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
