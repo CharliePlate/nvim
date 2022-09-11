@@ -68,6 +68,6 @@ nvim_tree.setup({
 	},
 	filters = {
 		custom = { ".git", "/build" },
-		exclude = { ".gitignore" },
+		exclude = { ".gitignore", "config.json" },
 	},
 })
