@@ -8,30 +8,9 @@ if not snip_status_ok then
 	return
 end
 
-local buffer_fts = {
-	"markdown",
-	"toml",
-	"yaml",
-	"json",
-}
-
-local function contains(t, value)
-	for _, v in pairs(t) do
-		if v == value then
-			return true
-		end
-	end
-	return false
-end
-
 local compare = require("cmp.config.compare")
 
 require("luasnip/loaders/from_vscode").lazy_load()
-
-local check_backspace = function()
-	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
 
 local icons = require("packages.icons")
 
@@ -130,48 +109,23 @@ local M = {
 		end,
 	},
 	sources = {
-		{ name = "crates", group_index = 1 },
-		{
-			name = "nvim_lsp",
-			filter = function(entry, ctx)
-				local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
-				if kind == "Snippet" and ctx.prev_context.filetype == "java" then
-					return true
-				end
-
-				if kind == "Text" then
-					return true
-				end
-			end,
-			group_index = 2,
-		},
-		{ name = "nvim_lua", group_index = 2 },
-		{ name = "luasnip", group_index = 2 },
-		{
-			name = "buffer",
-			group_index = 2,
-			filter = function(_, ctx)
-				if not contains(buffer_fts, ctx.prev_context.filetype) then
-					return true
-				end
-			end,
-		},
-		{ name = "cmp_tabnine", group_index = 2 },
+		{ name = "nvim_lsp", priority = 8 },
+		{ name = "buffer", priority = 7 },
+		{ name = "luasnip", priority = 6 },
 		{ name = "path", group_index = 2 },
-		{ name = "emoji", group_index = 2 },
-		{ name = "lab.quick_data", keyword_length = 4, group_index = 2 },
 	},
+
 	sorting = {
-		priority_weight = 2,
+		priority_weight = 1,
 		comparators = {
 			compare.locality,
 			compare.recently_used,
 			compare.score,
 			compare.offset,
 			compare.order,
-			compare.exact,
-			compare.sort_text,
-			compare.length,
+			-- compare.exact,
+			-- compare.sort_text,
+			-- compare.length,
 		},
 	},
 	confirm_opts = {
