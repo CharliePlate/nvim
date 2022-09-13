@@ -30,7 +30,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert
 -- jk to get exit insert mode
-keymap("i", "jk", "<Esc>", opts)
+keymap("i", "jk", "<C-o>a", opts)
 
 -- Remove C-j and C-k for telescope
 keymap("i", "<C-j>", "<Nop>", opts)
