@@ -80,7 +80,6 @@ local opts = {
 
 local mappings = {
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["q"] = { "<cmd>q!<CR>", "Quit" },
 
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["k"] = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
@@ -96,17 +95,8 @@ local mappings = {
 	d = {
 		name = "Diagnostics",
 		k = { "<cmd>lua vim.diagnostic.open_float()<CR>", "View Diagnostic" },
-		h = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Prev Diagnostic" },
-		l = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
-	},
-
-	p = {
-		name = "Packer",
-		c = { "<cmd>PackerCompile<cr>", "Compile" },
-		i = { "<cmd>PackerInstall<cr>", "Install" },
-		s = { "<cmd>PackerSync<cr>", "Sync" },
-		S = { "<cmd>PackerStatus<cr>", "Status" },
-		u = { "<cmd>PackerUpdate<cr>", "Update" },
+		p = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Prev Diagnostic" },
+		n = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
 	},
 
 	g = {
@@ -129,24 +119,21 @@ local mappings = {
 		I = { "<cmd>Mason<cr>", "Mason" },
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			"Workspace Symbols",
-		},
 	},
 
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		s = { "<cmd>SearchSession<cr>", "Sessions" },
+	},
+
+	S = {
+		name = "Settings",
+		c = { "<cmd>set cmdheight=0<cr>", "Cmd Height 0" },
+		C = { "<cmd>set cmdheight=1<cr>", "Cmd Height 1" },
 	},
 
 	t = {
