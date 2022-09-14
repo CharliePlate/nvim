@@ -39,7 +39,7 @@ nvim_tree.setup({
 					renamed = "➜",
 					untracked = "U",
 					deleted = "",
-					ignored = "◌",
+					ignored = "",
 				},
 			},
 		},
@@ -67,7 +67,7 @@ nvim_tree.setup({
 		},
 	},
 	filters = {
-		custom = { ".git", "/build" },
-		exclude = { ".gitignore", "config.json" },
+		custom = { ".git" },
+		exclude = { ".gitignore" },
 	},
 })

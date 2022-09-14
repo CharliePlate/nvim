@@ -89,7 +89,7 @@ local mappings = {
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["b"] = { "<cmd>Telescope buffers<cr>", "Open Buffers" },
+	["b"] = { "<cmd>JABSOpen<cr>", "Open Buffers" },
 	["x"] = { "<cmd>Bdelete<cr>", "Close Buffer" },
 	["w"] = { "<cmd>hide<CR>", "Close Window" },
 

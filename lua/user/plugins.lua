@@ -50,6 +50,11 @@ return packer.startup(function(use)
 	use("feline-nvim/feline.nvim")
 	use("RRethy/vim-illuminate")
 
+	-- Buffers
+	use("matbme/JABS.nvim")
+
+	use("j-hui/fidget.nvim")
+
 	-- Util
 	use("lewis6991/impatient.nvim")
 	use("ggandor/lightspeed.nvim")
@@ -121,6 +126,4 @@ return packer.startup(function(use)
 	-- Comments
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-
-	use("ThePrimeagen/vim-be-good")
 end)
