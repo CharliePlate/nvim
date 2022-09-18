@@ -43,16 +43,24 @@ packer.init({
 return packer.startup(function(use)
 	--My plugins here
 	use("wbthomason/packer.nvim") -- Packer manages itself
-	use("nvim-lua/popup.nvim")
 
 	-- UI
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
 	use("feline-nvim/feline.nvim")
 	use("RRethy/vim-illuminate")
+	use("karb94/neoscroll.nvim")
+	use("petertriho/nvim-scrollbar")
+
+	use({
+		"anuvyklack/windows.nvim",
+		requires = {
+			"anuvyklack/middleclass",
+			"anuvyklack/animation.nvim",
+		},
+	})
 
 	-- Buffers
 	use("matbme/JABS.nvim")
-
 	use("j-hui/fidget.nvim")
 
 	-- Util

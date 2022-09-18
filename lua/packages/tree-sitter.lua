@@ -4,7 +4,8 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = "all", -- one of "all" or a list of languages
+	ensure_installed = { "lua", "go" }, -- one of "all" or a list of languages
+	auto_install = true,
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = false,

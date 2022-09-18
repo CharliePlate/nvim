@@ -10,5 +10,13 @@
 -- vim.g.material_style = "darker"
 -- vim.cmd("colorscheme material")
 
-vim.cmd("colorscheme kanagawa")
+local colors = require("kanagawa.colors").setup()
+local overrides = {
+	-- create a new hl-group using default palette colors and/or new on_lines
 
+	FloatBorder = { fg = "#7E9CD8", bg = colors.bg },
+	Pmenu = { fg = "#223249", bg = colors.bg },
+}
+
+require("kanagawa").setup({ overrides = overrides })
+vim.cmd("colorscheme kanagawa")

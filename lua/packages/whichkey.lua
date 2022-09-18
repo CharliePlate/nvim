@@ -90,7 +90,12 @@ local mappings = {
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["b"] = { "<cmd>JABSOpen<cr>", "Open Buffers" },
 	["x"] = { "<cmd>Bdelete<cr>", "Close Buffer" },
-	["w"] = { "<cmd>hide<CR>", "Close Window" },
+	w = {
+		name = "Window",
+		x = { "<cmd>hide<CR>", "Close Window" },
+		m = { "<cmd>WindowsMaximaze<CR>", "Maximize Windows" },
+		t = { "<cmd>WindowsToggleAutowidth<CR>", "Toggle Autowidth" },
+	},
 
 	d = {
 		name = "Diagnostics",
