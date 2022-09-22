@@ -28,6 +28,12 @@ local M = {
 		if buftype == "prompt" then
 			return false
 		end
+		if
+			require("cmp.config.context").in_treesitter_capture("comment") == true
+			or require("cmp.config.context").in_syntax_group("Comment")
+		then
+			return false
+		end
 		return vim.g.cmp_active
 	end,
 	preselect = cmp.PreselectMode.None,
@@ -108,9 +114,10 @@ local M = {
 			return vim_item
 		end,
 	},
+
 	sources = {
 		{ name = "nvim_lsp", priority = 8 },
-		{ name = "buffer", priority = 7 },
+		{ name = "buffer", priority = 8 },
 		{ name = "luasnip", priority = 6 },
 		{ name = "path", group_index = 2 },
 	},

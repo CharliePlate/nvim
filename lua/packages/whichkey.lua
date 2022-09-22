@@ -93,7 +93,7 @@ local mappings = {
 	w = {
 		name = "Window",
 		x = { "<cmd>hide<CR>", "Close Window" },
-		m = { "<cmd>WindowsMaximaze<CR>", "Maximize Windows" },
+		m = { "<cmd>WindowsMaximize<CR>", "Maximize Windows" },
 		t = { "<cmd>WindowsToggleAutowidth<CR>", "Toggle Autowidth" },
 	},
 

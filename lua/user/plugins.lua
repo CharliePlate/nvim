@@ -58,6 +58,7 @@ return packer.startup(function(use)
 			"anuvyklack/animation.nvim",
 		},
 	})
+	use("m-demare/hlargs.nvim")
 
 	-- Buffers
 	use("matbme/JABS.nvim")
@@ -76,6 +77,8 @@ return packer.startup(function(use)
 	use("Shatur/neovim-ayu")
 	use("luisiacc/gruvbox-baby")
 	use("rebelot/kanagawa.nvim")
+	use("catppuccin/nvim")
+	use("Everblush/everblush.nvim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
@@ -134,4 +137,14 @@ return packer.startup(function(use)
 	-- Comments
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+
+	--md
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 end)
