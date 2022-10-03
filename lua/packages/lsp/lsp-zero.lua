@@ -33,6 +33,8 @@ lsp.on_attach(function(client, bufnr)
 	f.lsp_highlight_document(client)
 end)
 
+vim.g.copilot_assume_mapped = true
+
 local cmp_config = lsp.defaults.cmp_config(require("packages.lsp.cmp"))
 cmp.setup(cmp_config)
 

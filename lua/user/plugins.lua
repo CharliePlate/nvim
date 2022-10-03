@@ -72,6 +72,12 @@ return packer.startup(function(use)
 	use("ahmedkhalf/project.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({
+		"VonHeikemen/searchbox.nvim",
+		requires = {
+			{ "MunifTanjim/nui.nvim" },
+		},
+	})
 
 	-- Colorscheme
 	use("Shatur/neovim-ayu")
@@ -147,4 +153,6 @@ return packer.startup(function(use)
 		end,
 		ft = { "markdown" },
 	})
+
+	use({ "github/copilot.vim" })
 end)

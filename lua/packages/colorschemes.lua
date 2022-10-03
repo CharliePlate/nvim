@@ -12,7 +12,7 @@
 
 local colors = require("kanagawa.colors").setup()
 local overrides = {
-	Hlargs = vim.tbl_extend("force", { fg = "#A3D4D5" }, { italic = true }),
+	Hlargs = vim.tbl_extend("force", { fg = "#EA8181" }, { italic = true }),
 	-- create a new hl-group using default palette colors and/or new on_lines
 
 	FloatBorder = { fg = "#7E9CD8", bg = colors.bg },

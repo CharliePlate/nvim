@@ -111,6 +111,11 @@ local M = {
 				vim_item.kind_hl_group = "CmpItemKindConstant"
 			end
 
+			if entry.source.name == "copilot" then
+				vim_item.kind = icons.git.Octoface
+				vim_item.kind_hl_group = "CmpItemKindCopilot"
+			end
+
 			-- NOTE: order matters
 			vim_item.menu = ({
 				nvim_lsp = "",
@@ -125,19 +130,27 @@ local M = {
 	},
 
 	sources = {
-		{ name = "nvim_lsp", priority = 8 },
-		{ name = "buffer", priority = 8 },
-		{ name = "luasnip", priority = 6 },
+		-- { name = "copilot", group_index = 2 },
+		{ name = "nvim_lsp", group_index = 2 },
+		{ name = "buffer", group_index = 2 },
+		{ name = "luasnip", group_index = 2 },
 		{ name = "path", group_index = 2 },
 	},
 
 	sorting = {
-		priority_weight = 1,
+		priority_weight = 2,
 		comparators = {
-			compare.locality,
-			compare.recently_used,
+			-- require("copilot_cmp.comparators").prioritize,
+			-- require("copilot_cmp.comparators").score,
+			cmp.config.compare.offset,
+			-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+			compare.exact,
 			compare.score,
-			compare.offset,
+			compare.recently_used,
+			compare.locality,
+			compare.kind,
+			compare.sort_text,
+			compare.length,
 			compare.order,
 		},
 	},
@@ -167,6 +180,10 @@ cmp.setup.cmdline(":", {
 	}, {
 		{ name = "cmdline" },
 	}),
+})
+
+cmp.setup({
+	mapping = {},
 })
 
 return M
