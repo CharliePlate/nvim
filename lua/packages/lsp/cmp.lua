@@ -14,6 +14,14 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 local icons = require("packages.icons")
 
+-- require("copilot_cmp").setup({
+-- 	formatters = {
+-- 		label = require("copilot_cmp.format").format_label_text,
+-- 		insert_text = require("copilot_cmp.format").format_label_text,
+-- 		preview = require("copilot_cmp.format").deindent,
+-- 	},
+-- })
+
 local kind_icons = icons.kind
 
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
@@ -21,6 +29,13 @@ vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
 
 vim.g.cmp_active = true
+local has_words_before = function()
+	if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+		return false
+	end
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+end
 
 local M = {
 	enabled = function()
@@ -74,8 +89,7 @@ local M = {
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<Right>"] = cmp.mapping.confirm({ select = true }),
-		["<Tab>"] = cmp.mapping.confirm({ select = true }),
-		["<S-Tab>"] = cmp.mapping.confirm({ select = true }),
+		["<Tab>"] = cmp.mapping.abort(),
 	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
@@ -90,11 +104,6 @@ local M = {
 			if entry.source.name == "emoji" then
 				vim_item.kind = icons.misc.Smiley
 				vim_item.kind_hl_group = "CmpItemKindEmoji"
-			end
-
-			if entry.source.name == "crates" then
-				vim_item.kind = icons.misc.Package
-				vim_item.kind_hl_group = "CmpItemKindCrate"
 			end
 
 			if entry.source.name == "lab.quick_data" then
@@ -130,9 +139,6 @@ local M = {
 			compare.score,
 			compare.offset,
 			compare.order,
-			-- compare.exact,
-			-- compare.sort_text,
-			-- compare.length,
 		},
 	},
 	confirm_opts = {
