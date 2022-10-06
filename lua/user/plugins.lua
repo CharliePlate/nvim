@@ -46,19 +46,22 @@ return packer.startup(function(use)
 
 	-- UI
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
-	use("feline-nvim/feline.nvim")
 	use("RRethy/vim-illuminate")
 	use("karb94/neoscroll.nvim")
-	use("petertriho/nvim-scrollbar")
-
+	use("m-demare/hlargs.nvim")
+	use("nvim-lualine/lualine.nvim")
 	use({
-		"anuvyklack/windows.nvim",
+		"folke/noice.nvim",
+		event = "VimEnter",
+		config = function()
+			require("noice").setup()
+		end,
 		requires = {
-			"anuvyklack/middleclass",
-			"anuvyklack/animation.nvim",
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
 		},
 	})
-	use("m-demare/hlargs.nvim")
 
 	-- Buffers
 	use("matbme/JABS.nvim")
@@ -69,22 +72,14 @@ return packer.startup(function(use)
 	use("ggandor/lightspeed.nvim")
 	use("windwp/nvim-autopairs") -- Auto Pairs
 	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-dap.nvim")
 	use("ahmedkhalf/project.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({
-		"VonHeikemen/searchbox.nvim",
-		requires = {
-			{ "MunifTanjim/nui.nvim" },
-		},
-	})
+	use("nvim-lua/plenary.nvim")
 
 	-- Colorscheme
-	use("Shatur/neovim-ayu")
-	use("luisiacc/gruvbox-baby")
 	use("rebelot/kanagawa.nvim")
-	use("catppuccin/nvim")
-	use("Everblush/everblush.nvim")
+	use("bluz71/vim-nightfly-guicolors")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
@@ -99,13 +94,8 @@ return packer.startup(function(use)
 	-- Surround
 	use("kylechui/nvim-surround")
 
-	-- Sessions
-	use("rmagatti/auto-session")
-	use("rmagatti/session-lens")
-
 	-- LSP
 	use({ "VonHeikemen/lsp-zero.nvim" })
-
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 
 	-- LSP Support
@@ -127,10 +117,8 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets" })
 
 	-- Lsp Util
-	use("folke/trouble.nvim")
 	use("ray-x/lsp_signature.nvim")
 	use("SmiteshP/nvim-navic")
-	use("Maan2003/lsp_lines.nvim")
 	use("b0o/SchemaStore.nvim")
 
 	-- Terminal
@@ -143,16 +131,14 @@ return packer.startup(function(use)
 	-- Comments
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-
-	--md
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	})
-
 	use({ "github/copilot.vim" })
+
+	--go
+	use("ray-x/guihua.lua")
+	use("ray-x/go.nvim")
+
+	-- debug
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
+	use("theHamsta/nvim-dap-virtual-text")
 end)

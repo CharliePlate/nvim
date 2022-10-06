@@ -159,6 +159,7 @@ local M = {
 		select = false,
 	},
 	window = {
+
 		documentation = {
 			border = "rounded",
 			winhighlight = "NormalFloat:Pmenu,FloatBorder:FloatBorder,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
