@@ -1,52 +1,56 @@
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
+local M = {
+	normal = {
+		["<C-s>"] = ":w<CR>",
+		["<C-h>"] = "<C-w>h",
+		["<C-j>"] = "<C-w>j",
+		["<C-k>"] = "<C-w>k",
+		["<C-l>"] = "<C-w>l",
+		["<C-Down>"] = ":resize -2<CR>",
+		["<C-Up>"] = ":resize +2<CR>",
+		["<C-Right>"] = ":vertical resize -2<CR>",
+		["<C-Left>"] = ":vertical resize +2<CR>",
+		["<M-k>"] = "<Esc>:m .-2<CR>==",
+		["<M-j>"] = "<Esc>:m .+1<CR>==",
+		["<S-l>"] = ":bnext<CR>",
+		["<S-h>"] = ":bprevious<CR>",
+	},
+	insert = {
+		["jk"] = "<C-o>a",
+		["<C-j>"] = "<Nop>",
+		["<C-k>"] = "<Nop>",
+	},
+	visual = {
+		["<"] = "<gv",
+		[">"] = ">gv",
+		["<A-j>"] = ":m .+1<CR>==",
+		["<A-k>"] = ":m .-2<CR>==",
+		["p"] = '"_dP',
+	},
+	visual_block = {
+		["<A-j>"] = ":move '>+1<CR>gv-gv",
+		["<A-k>"] = ":move '<-2<CR>gv-gv",
+	},
+}
 
-keymap("", "<Space>", "<Nop>", opts)
+-- inverse of modeMap without a function
+local modeMap = {
+	normal = "n",
+	insert = "i",
+	visual = "v",
+	visual_block = "x",
+}
+
+local function setKeymap(mode, key, value)
+	local options = { noremap = true, silent = true }
+	vim.api.nvim_set_keymap(modeMap[mode], key, value, options)
+end
+
+for mode, keymap in pairs(M) do
+	for key, value in pairs(keymap) do
+		setKeymap(mode, key, value)
+	end
+end
+
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Normal Mode
--- Save on ctrl-s
-keymap("n", "<C-s>", ":w<CR>", opts)
-
--- Window Navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Resize with arrows
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
-
--- Move Text Up and Down
-keymap("n", "<M-k>", "<Esc>:m .-2<CR>==", opts)
-keymap("n", "<M-j>", "<Esc>:m .+1<CR>==", opts)
-
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Insert
--- jk to get exit insert mode
-keymap("i", "jk", "<C-o>a", opts)
-
--- Remove C-j and C-k for telescope
-keymap("i", "<C-j>", "<Nop>", opts)
-keymap("i", "<C-k>", "<Nop>", opts)
-
--- Visual
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)

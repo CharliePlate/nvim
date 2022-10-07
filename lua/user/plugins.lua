@@ -64,7 +64,6 @@ return packer.startup(function(use)
 	})
 
 	-- Buffers
-	use("matbme/JABS.nvim")
 	use("j-hui/fidget.nvim")
 
 	-- Util
@@ -141,4 +140,12 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
 	use("theHamsta/nvim-dap-virtual-text")
+
+	use({
+		"anuvyklack/windows.nvim",
+		requires = {
+			"anuvyklack/middleclass",
+			"anuvyklack/animation.nvim",
+		},
+	})
 end)
