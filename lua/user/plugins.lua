@@ -79,6 +79,7 @@ return packer.startup(function(use)
 	-- Colorscheme
 	use("rebelot/kanagawa.nvim")
 	use("bluz71/vim-nightfly-guicolors")
+	use("folke/tokyonight.nvim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })

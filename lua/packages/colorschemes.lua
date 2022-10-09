@@ -36,5 +36,7 @@ local overrides = {
 	DapBreakpoint = { fg = "#E82424" },
 }
 
-require("kanagawa").setup({ overrides = overrides })
-vim.cmd("colorscheme kanagawa")
+-- require("kanagawa").setup({ overrides = overrides })
+-- vim.cmd("colorscheme kanagawa")
+
+vim.cmd("colorscheme tokyonight-night")

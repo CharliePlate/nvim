@@ -32,7 +32,7 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+		theme = "tokyonight",
 		component_separators = { left = "", right = "" },
 		section_separators = { right = "", left = "" },
 		disabled_filetypes = {
