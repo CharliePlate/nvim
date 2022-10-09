@@ -93,11 +93,8 @@ local mappings = {
 		},
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		C = {
-			"<cmd>Telescope git_bcommits<cr>",
-			"Checkout commit(for current file)",
-		},
+		c = { "<cmd>Copilot<cr>", "Copilot" },
+		C = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
 		d = {
 			"<cmd>Gitsigns diffthis HEAD<cr>",
 			"Git Diff",
