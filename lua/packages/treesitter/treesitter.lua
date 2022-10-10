@@ -22,4 +22,31 @@ configs.setup({
 	rainbow = {
 		enable = true,
 	},
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+			keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
+			},
+		},
+		move = {
+			enable = true,
+			set_jumps = true, -- whether to set jumps in the jumplist
+			goto_next_start = {
+				["]a"] = "@parameter.outer",
+			},
+			goto_next_end = {
+				["]A"] = "@parameter.outer",
+			},
+			goto_previous_start = {
+				["[a"] = "@parameter.outer",
+			},
+			goto_previous_end = {
+				["[A"] = "@parameter.outer",
+			},
+		},
+	},
 })
