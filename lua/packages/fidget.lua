@@ -3,8 +3,4 @@ if not status_ok then
 	return
 end
 
-fidget.setup({
-	windows = {
-		blend = 0,
-	},
-})
+fidget.setup({})

@@ -17,7 +17,7 @@ local function lsp_client_names()
 		clients[#clients + 1] = client.name
 	end
 
-	return table.concat(clients, " "), " "
+	return table.concat(clients, " ")
 end
 
 local function show_macro_recording()
@@ -32,7 +32,7 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "tokyonight",
+		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { right = "", left = "" },
 		disabled_filetypes = {
