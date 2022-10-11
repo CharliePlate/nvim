@@ -92,51 +92,47 @@ if not ok then
 	return
 end
 
-vim.api.nvim_create_autocmd("BufWinEnter", { pattern = "*.go", command = "lua goDebugBindings()" })
+local go_opts = {
+	mode = "n", -- NORMAL mode
+	prefix = "<leader>",
+	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	silent = true, -- use `silent` when creating keymaps
+	noremap = true, -- use `noremap` when creating keymaps
+	nowait = true, -- use `nowait` when creating keymaps
+}
 
-_G.goDebugBindings = function()
-	local go_opts = {
-		mode = "n", -- NORMAL mode
-		prefix = "<leader>",
-		buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-		silent = true, -- use `silent` when creating keymaps
-		noremap = true, -- use `noremap` when creating keymaps
-		nowait = true, -- use `nowait` when creating keymaps
-	}
-
-	local go_mappings = {
-		d = {
-			name = "Debug",
-			s = { "<cmd>GoDebug<cr>", "Start" },
-			t = { "<cmd>GoBreakToggle<cr>", "Toggle Breakpoint" },
-			b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-			c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-			C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-			d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-			g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-			i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-			o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-			u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-			p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-			r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-			q = { "<cmd>DapStop<cr>", "Quit" },
-			T = {
-				name = "Telescope",
-				b = { "<cmd>Telescope dap list_breakpoints<cr>", "List Breakpoints" },
-				f = { "<cmd>Telescope dap list_frames<cr>", "List Frames" },
-				v = { "<cmd>Telescope dap list_variables<cr>", "List Variables" },
-			},
+local go_mappings = {
+	d = {
+		name = "Debug",
+		s = { "<cmd>GoDebug<cr>", "Start" },
+		t = { "<cmd>GoBreakToggle<cr>", "Toggle Breakpoint" },
+		b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+		C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
+		d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+		g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+		i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+		o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+		u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+		p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
+		r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
+		q = { "<cmd>DapStop<cr>", "Quit" },
+		T = {
+			name = "Telescope",
+			b = { "<cmd>Telescope dap list_breakpoints<cr>", "List Breakpoints" },
+			f = { "<cmd>Telescope dap list_frames<cr>", "List Frames" },
+			v = { "<cmd>Telescope dap list_variables<cr>", "List Variables" },
 		},
-		L = {
-			name = "Go",
-			s = { "<cmd>GoFillStruct<cr>", "Fill Struct" },
-			e = { "<cmd>GoIfErr<cr>", "If Error" },
-			p = { "<cmd>GoFixPlural<cr>", "Fix Plural" },
-			l = { "<cmd>GoLint<cr>", "Lint" },
-			o = { "<cmd>GoPkgOutline<cr>", "Outline" },
-			c = { "<cmd>lua require('go.comment').gen()<cr>", "Comment" },
-			C = { "<cmd>lua require('go.comment').gen(true)<cr>", "Comment (line)" },
-		},
-	}
-	whichkey.register(go_mappings, go_opts)
-end
+	},
+	L = {
+		name = "Go",
+		s = { "<cmd>GoFillStruct<cr>", "Fill Struct" },
+		e = { "<cmd>GoIfErr<cr>", "If Error" },
+		p = { "<cmd>GoFixPlural<cr>", "Fix Plural" },
+		l = { "<cmd>GoLint<cr>", "Lint" },
+		o = { "<cmd>GoPkgOutline<cr>", "Outline" },
+		c = { "<cmd>lua require('go.comment').gen()<cr>", "Comment" },
+		C = { "<cmd>lua require('go.comment').gen(true)<cr>", "Comment (line)" },
+	},
+}
+whichkey.register(go_mappings, go_opts)
