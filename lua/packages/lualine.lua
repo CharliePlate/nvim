@@ -37,7 +37,17 @@ lualine.setup({
 		section_separators = { right = "", left = "" },
 		disabled_filetypes = {
 			statusline = { "NvimTree", "vista", "dbui", "packer" },
-			winbar = { "NvimTree", "vista", "dbui", "packer" },
+			winbar = {
+				"NvimTree",
+				"vista",
+				"dbui",
+				"packer",
+				"dap-repl",
+				"DAP Scopes",
+				"DAP Breakpoints",
+				"DAP Stacks",
+				"DAP Watches",
+			},
 		},
 		ignore_focus = {},
 		always_divide_middle = true,

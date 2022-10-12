@@ -70,11 +70,23 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 	use("ggandor/lightspeed.nvim")
 	use("windwp/nvim-autopairs") -- Auto Pairs
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-dap.nvim")
 	use("ahmedkhalf/project.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("nvim-lua/plenary.nvim")
+
+	-- Telescope
+	use("nvim-telescope/telescope.nvim")
+	use({
+		"LukasPietzschmann/telescope-tabs",
+		requires = { "nvim-telescope/telescope.nvim" },
+		config = function()
+			require("telescope-tabs").setup({
+				previewer = false,
+				close_tab_shortcut = "dd",
+			})
+		end,
+	})
+	use("nvim-telescope/telescope-dap.nvim")
 
 	-- Colorscheme
 	use("rebelot/kanagawa.nvim")
@@ -86,7 +98,6 @@ return packer.startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("nvim-treesitter/nvim-treesitter-context")
-
 	-- git
 	use("kdheepak/lazygit.nvim")
 	use("lewis6991/gitsigns.nvim")
@@ -134,8 +145,8 @@ return packer.startup(function(use)
 	use({ "github/copilot.vim" })
 
 	--go
-	use("ray-x/guihua.lua")
-	use("ray-x/go.nvim")
+	use("olexsmir/gopher.nvim")
+	use("leoluz/nvim-dap-go")
 
 	-- debug
 	use("mfussenegger/nvim-dap")
