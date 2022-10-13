@@ -102,3 +102,11 @@ telescope.setup({
 		preview = { " " },
 	},
 })
+
+local ok, telescopetabs = pcall(require("telescope-tabs"))
+if ok then
+	telescopetabs.setup({
+		previewer = false,
+		close_tab_shortcut = "dd",
+	})
+end

@@ -118,7 +118,7 @@ local mappings = {
 		l = { vim.lsp.codelens.run, "CodeLens Action" },
 		q = { vim.diagnostic.setloclist, "Quickfix" },
 		r = { vim.lsp.buf.rename, "Rename" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		s = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",

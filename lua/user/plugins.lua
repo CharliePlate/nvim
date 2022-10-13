@@ -40,124 +40,75 @@ packer.init({
 })
 
 --Install your plugins here
-return packer.startup(function(use)
-	--My plugins here
-	use("wbthomason/packer.nvim") -- Packer manages itself
 
-	-- UI
-	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } }) -- nvim tree
-	use("RRethy/vim-illuminate")
-	use("karb94/neoscroll.nvim")
-	use("m-demare/hlargs.nvim")
-	use("nvim-lualine/lualine.nvim")
-	use({
-		"folke/noice.nvim",
-		event = "VimEnter",
-		config = function()
-			require("noice").setup()
-		end,
-		requires = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	})
+local M = {
+	["wbthomason/packer.nvim"] = {},
+	["kyazdani42/nvim-tree.lua"] = { requires = { "kyazdani42/nvim-web-devicons" } },
+	["RRethy/vim-illuminate"] = {},
+	["karb94/neoscroll.nvim"] = {},
+	["m-demare/hlargs.nvim"] = {},
+	["nvim-lualine/lualine.nvim"] = {},
+	["folke/noice.nvim"] = { event = "VimEnter", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } },
+	["j-hui/fidget.nvim"] = {},
+	["lewis6991/impatient.nvim"] = {},
+	["ggandor/lightspeed.nvim"] = {},
+	["windwp/nvim-autopairs"] = {},
+	["ahmedkhalf/project.nvim"] = {},
+	["lukas-reineke/indent-blankline.nvim"] = {},
+	["nvim-lua/plenary.nvim"] = {},
+	["simrat39/symbols-outline.nvim"] = {},
+	["rebelot/kanagawa.nvim"] = {},
+	["bluz71/vim-nightfly-guicolors"] = {},
+	["folke/tokyonight.nvim"] = {},
+	["nvim-treesitter/nvim-treesitter"] = { run = "TSUpdate" },
+	["p00f/nvim-ts-rainbow"] = {},
+	["nvim-treesitter/nvim-treesitter-textobjects"] = {},
+	["nvim-treesitter/nvim-treesitter-context"] = {},
+	["kdheepak/lazygit.nvim"] = {},
+	["lewis6991/gitsigns.nvim"] = {},
+	["kylechui/nvim-surround"] = {},
+	["VonHeikemen/lsp-zero.nvim"] = {},
+	["jose-elias-alvarez/null-ls.nvim"] = {},
+	["neovim/nvim-lspconfig"] = {},
+	["williamboman/mason.nvim"] = {},
+	["williamboman/mason-lspconfig.nvim"] = {},
+	["hrsh7th/cmp-cmdline"] = {},
+	["hrsh7th/nvim-cmp"] = {},
+	["hrsh7th/cmp-buffer"] = {},
+	["hrsh7th/cmp-path"] = {},
+	["saadparwaiz1/cmp_luasnip"] = {},
+	["hrsh7th/cmp-nvim-lsp"] = {},
+	["hrsh7th/cmp-nvim-lua"] = {},
+	["L3MON4D3/LuaSnip"] = {},
+	["rafamadriz/friendly-snippets"] = {},
+	["ray-x/lsp_signature.nvim"] = {},
+	["SmiteshP/nvim-navic"] = {},
+	["b0o/SchemaStore.nvim"] = {},
+	["akinsho/toggleterm.nvim"] = {},
+	["folke/which-key.nvim"] = {},
+	["moll/vim-bbye"] = {},
+	["numToStr/Comment.nvim"] = {},
+	["JoosepAlviste/nvim-ts-context-commentstring"] = {},
+	["github/copilot.vim"] = {},
+	["olexsmir/gopher.nvim"] = {},
+	["leoluz/nvim-dap-go"] = {},
+	["mfussenegger/nvim-dap"] = {},
+	["rcarriga/nvim-dap-ui"] = {},
+	["theHamsta/nvim-dap-virtual-text"] = {},
+	["anuvyklack/windows.nvim"] = { requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" } },
+	["nvim-telescope/telescope.nvim"] = { requires = { "nvim-lua/plenary.nvim" } },
+	-- nvim dap
+	["nvim-telescope/telescope-dap.nvim"] = {},
+	["LukasPietzschmann/telescope-tabs"] = {},
+}
 
-	-- Buffers
-	use("j-hui/fidget.nvim")
-
-	-- Util
-	use("lewis6991/impatient.nvim")
-	use("ggandor/lightspeed.nvim")
-	use("windwp/nvim-autopairs") -- Auto Pairs
-	use("ahmedkhalf/project.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	use("nvim-lua/plenary.nvim")
-
-	-- Telescope
-	use("nvim-telescope/telescope.nvim")
-	use({
-		"LukasPietzschmann/telescope-tabs",
-		requires = { "nvim-telescope/telescope.nvim" },
-		config = function()
-			require("telescope-tabs").setup({
-				previewer = false,
-				close_tab_shortcut = "dd",
-			})
-		end,
-	})
-	use("nvim-telescope/telescope-dap.nvim")
-
-	-- Colorscheme
-	use("rebelot/kanagawa.nvim")
-	use("bluz71/vim-nightfly-guicolors")
-	use("folke/tokyonight.nvim")
-
-	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" })
-	use("p00f/nvim-ts-rainbow")
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-	use("nvim-treesitter/nvim-treesitter-context")
-	-- git
-	use("kdheepak/lazygit.nvim")
-	use("lewis6991/gitsigns.nvim")
-
-	-- Surround
-	use("kylechui/nvim-surround")
-
-	-- LSP
-	use({ "VonHeikemen/lsp-zero.nvim" })
-	use({ "jose-elias-alvarez/null-ls.nvim" })
-
-	-- LSP Support
-	use({ "neovim/nvim-lspconfig" })
-	use({ "williamboman/mason.nvim" })
-	use({ "williamboman/mason-lspconfig.nvim" })
-
-	-- Autocompletion
-	use({ "hrsh7th/cmp-cmdline" })
-	use({ "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-buffer" })
-	use({ "hrsh7th/cmp-path" })
-	use({ "saadparwaiz1/cmp_luasnip" })
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-nvim-lua" })
-
-	-- Snippets
-	use({ "L3MON4D3/LuaSnip" })
-	use({ "rafamadriz/friendly-snippets" })
-
-	-- Lsp Util
-	use("ray-x/lsp_signature.nvim")
-	use("SmiteshP/nvim-navic")
-	use("b0o/SchemaStore.nvim")
-
-	-- Terminal
-	use("akinsho/toggleterm.nvim")
-
-	-- Which Key
-	use("folke/which-key.nvim")
-	use("moll/vim-bbye")
-
-	-- Comments
-	use("numToStr/Comment.nvim")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use({ "github/copilot.vim" })
-
-	--go
-	use("olexsmir/gopher.nvim")
-	use("leoluz/nvim-dap-go")
-
-	-- debug
-	use("mfussenegger/nvim-dap")
-	use("rcarriga/nvim-dap-ui")
-	use("theHamsta/nvim-dap-virtual-text")
-
-	use({
-		"anuvyklack/windows.nvim",
-		requires = {
-			"anuvyklack/middleclass",
-			"anuvyklack/animation.nvim",
-		},
-	})
+packer.startup(function(use)
+	for plugin, config in pairs(M) do
+		-- move plugin into the first position of a new map and loop through config and add them to the key and value
+		local new_config = { plugin }
+		for key, value in pairs(config) do
+			new_config[key] = value
+		end
+		use(new_config)
+	end
 end)

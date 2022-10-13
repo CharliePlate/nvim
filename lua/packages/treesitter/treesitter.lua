@@ -30,6 +30,10 @@ configs.setup({
 				-- You can use the capture groups defined in textobjects.scm
 				["aa"] = "@parameter.outer",
 				["ia"] = "@parameter.inner",
+				["ai"] = "@conditional.outer",
+				["ii"] = "@conditional.inner",
+				["al"] = "@loop.outer",
+				["il"] = "@loop.inner",
 			},
 		},
 		move = {
@@ -37,15 +41,23 @@ configs.setup({
 			set_jumps = true, -- whether to set jumps in the jumplist
 			goto_next_start = {
 				["]a"] = "@parameter.outer",
+				["]l"] = "@loop.outer",
+				["]i"] = "@conditional.outer",
 			},
 			goto_next_end = {
 				["]A"] = "@parameter.outer",
+				["]L"] = "@loop.outer",
+				["]I"] = "@conditional.outer",
 			},
 			goto_previous_start = {
 				["[a"] = "@parameter.outer",
+				["[l"] = "@loop.outer",
+				["[i"] = "@conditional.outer",
 			},
 			goto_previous_end = {
 				["[A"] = "@parameter.outer",
+				["[L"] = "@loop.outer",
+				["[I"] = "@conditional.outer",
 			},
 		},
 	},
