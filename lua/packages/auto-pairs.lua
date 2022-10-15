@@ -8,7 +8,8 @@ npairs.setup({
 	ts_config = {
 		lua = { "string", "source" },
 		javascript = { "string", "template_string" },
-		java = false,
+		typescript = { "string", "template_string" },
+		go = { "string", "comment" },
 	},
 	disable_filetype = { "TelescopePrompt", "spectre_panel" },
 	fast_wrap = {

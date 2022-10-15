@@ -97,9 +97,10 @@ local M = {
 	["theHamsta/nvim-dap-virtual-text"] = {},
 	["anuvyklack/windows.nvim"] = { requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" } },
 	["nvim-telescope/telescope.nvim"] = { requires = { "nvim-lua/plenary.nvim" } },
-	-- nvim dap
 	["nvim-telescope/telescope-dap.nvim"] = {},
 	["LukasPietzschmann/telescope-tabs"] = {},
+	["nagy135/typebreak.nvim"] = {},
+	["CharliePlate/whichkey-ft.nvim"] = {},
 }
 
 packer.startup(function(use)

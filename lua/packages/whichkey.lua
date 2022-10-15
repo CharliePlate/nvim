@@ -123,6 +123,7 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
+		b = { "<cmd>lua require('typebreak').start()<cr>", "Typebreak" },
 		e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
 	},
 
