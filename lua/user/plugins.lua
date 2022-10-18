@@ -89,7 +89,6 @@ local M = {
 	["moll/vim-bbye"] = {},
 	["numToStr/Comment.nvim"] = {},
 	["JoosepAlviste/nvim-ts-context-commentstring"] = {},
-	["github/copilot.vim"] = {},
 	["olexsmir/gopher.nvim"] = {},
 	["leoluz/nvim-dap-go"] = {},
 	["mfussenegger/nvim-dap"] = {},
@@ -100,8 +99,15 @@ local M = {
 	["nvim-telescope/telescope-dap.nvim"] = {},
 	["LukasPietzschmann/telescope-tabs"] = {},
 	["nagy135/typebreak.nvim"] = {},
-	["Ostralyan/scribe.nvim"] = {},
-	["tamton-aquib/duck.nvim"] = {},
+	["seandewar/killersheep.nvim"] = {},
+	["zbirenbaum/copilot.lua"] = {
+		event = "InsertEnter",
+		config = function()
+			vim.schedule(function()
+				require("copilot").setup(require("packages.copilot"))
+			end)
+		end,
+	},
 }
 
 packer.startup(function(use)
