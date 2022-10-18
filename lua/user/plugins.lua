@@ -100,6 +100,8 @@ local M = {
 	["nvim-telescope/telescope-dap.nvim"] = {},
 	["LukasPietzschmann/telescope-tabs"] = {},
 	["nagy135/typebreak.nvim"] = {},
+	["Ostralyan/scribe.nvim"] = {},
+	["tamton-aquib/duck.nvim"] = {},
 }
 
 packer.startup(function(use)

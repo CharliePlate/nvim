@@ -11,7 +11,10 @@ local navic = function(client, bufnr)
 	if not status_ok then
 		return
 	end
-	navic.attach(client, bufnr)
+
+	if client.name ~= "golangci_lint_ls" then
+		navic.attach(client, bufnr)
+	end
 end
 
 local format = function(bufnr)

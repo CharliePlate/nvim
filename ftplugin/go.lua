@@ -50,6 +50,9 @@ _G.goDebugBindings = function()
 			e = { "<cmd>GoIfErr<cr>", "Go If Err" },
 			c = { "<cmd>GoCmt<Cr>", "Generate Comment" },
 		},
+		d = {
+			t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
+		},
 	}
 	whichkey.register(go_mappings, go_opts)
 end

@@ -123,7 +123,6 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
-		b = { "<cmd>lua require('typebreak').start()<cr>", "Typebreak" },
 		e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
 	},
 
@@ -170,6 +169,12 @@ local mappings = {
 		l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
 		x = { "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Exit" },
+	},
+	f = {
+		name = "Fun",
+		p = { "<cmd>lua require('duck').hatch('🐤')<cr>", "Pet" },
+		P = { "<cmd>lua require('duck').cook()<cr>", "Cook Pet" },
+		t = { "<cmd>lua require('typebreak').start()<cr>", "Typebreak" },
 	},
 }
 

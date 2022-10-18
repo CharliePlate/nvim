@@ -3,7 +3,7 @@ if ok then
 	noice.setup({
 		cmdline = {
 			enabled = true, -- disable if you use native command line UI
-			view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+			view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
 			opts = { buf_options = { filetype = "vim" } }, -- enable syntax highlighting in the cmdline
 			icons = {
 				["/"] = { icon = " ", hl_group = "DiagnosticWarn" },
@@ -47,7 +47,15 @@ if ok then
 		},
 		throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
 		views = {}, -- @see the section on views below
-		routes = {}, -- @see the section on routes below
+		routes = {
+			{
+				filter = {
+					event = "cmdline",
+					find = "^%s*[/?]",
+				},
+				view = "cmdline",
+			},
+		}, -- @see the section on routes below
 		status = {}, --@see the section on statusline components below
 		format = {}, -- @see section on formatting
 	})
