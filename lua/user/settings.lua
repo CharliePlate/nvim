@@ -34,6 +34,10 @@ local options = {
 	wrap = false, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
+	foldcolumn = "0",
+	foldlevel = 99,
+	foldenable = true,
+	foldlevelstart = 99,
 }
 
 vim.opt.shortmess:append("c")

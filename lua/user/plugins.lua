@@ -99,15 +99,18 @@ local M = {
 	["nvim-telescope/telescope-dap.nvim"] = {},
 	["LukasPietzschmann/telescope-tabs"] = {},
 	["nagy135/typebreak.nvim"] = {},
-	["seandewar/killersheep.nvim"] = {},
 	["zbirenbaum/copilot.lua"] = {
-		event = "InsertEnter",
+		event = "VimEnter",
 		config = function()
-			vim.schedule(function()
+			vim.defer_fn(function()
 				require("copilot").setup(require("packages.copilot"))
-			end)
+			end, 100)
 		end,
 	},
+	["windwp/nvim-ts-autotag"] = {},
+	["kevinhwang91/nvim-ufo"] = { requires = "kevinhwang91/promise-async" },
+	["anuvyklack/pretty-fold.nvim"] = {},
+	["glepnir/zephyr-nvim"] = {},
 }
 
 packer.startup(function(use)

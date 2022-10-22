@@ -12,9 +12,9 @@ context.setup({
 			"class",
 			"function",
 			"method",
-			-- "for", -- These won't appear in the context
-			-- "while",
-			-- "if",
+			"for",
+			"while",
+			"if",
 			-- 'switch',
 			-- 'case',
 		},

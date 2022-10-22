@@ -18,6 +18,9 @@ configs.setup({
 	autopairs = {
 		enable = true,
 	},
+	autotag = {
+		enable = true,
+	},
 	indent = { enable = true, disable = { "python", "css" } },
 	rainbow = {
 		enable = true,
@@ -34,6 +37,8 @@ configs.setup({
 				["ii"] = "@conditional.inner",
 				["al"] = "@loop.outer",
 				["il"] = "@loop.inner",
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
 			},
 		},
 		move = {
@@ -43,21 +48,25 @@ configs.setup({
 				["]a"] = "@parameter.outer",
 				["]l"] = "@loop.outer",
 				["]i"] = "@conditional.outer",
+				["]f"] = "@function.outer",
 			},
 			goto_next_end = {
 				["]A"] = "@parameter.outer",
 				["]L"] = "@loop.outer",
 				["]I"] = "@conditional.outer",
+				["]F"] = "@function.outer",
 			},
 			goto_previous_start = {
 				["[a"] = "@parameter.outer",
 				["[l"] = "@loop.outer",
 				["[i"] = "@conditional.outer",
+				["[f"] = "@function.outer",
 			},
 			goto_previous_end = {
 				["[A"] = "@parameter.outer",
 				["[L"] = "@loop.outer",
 				["[I"] = "@conditional.outer",
+				["[F"] = "@function.outer",
 			},
 		},
 	},

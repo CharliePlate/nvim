@@ -3,8 +3,8 @@ if not status_ok then
 	return
 end
 
-vim.o.winwidth = 10
-vim.o.winminwidth = 10
+vim.o.winwidth = 15
+vim.o.winminwidth = 5
 vim.o.equalalways = false
 
 windows.setup({
