@@ -155,11 +155,11 @@ local M = {
 
 		documentation = {
 			border = "rounded",
-			winhighlight = "NormalFloat:Pmenu,FloatBorder:FloatBorder,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+			-- winhighlight = "NormalFloat:Pmenu,FloatBorder:FloatBorder,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 		},
 		completion = {
 			border = "rounded",
-			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+			-- winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 		},
 	},
 	experimental = {

@@ -51,7 +51,7 @@ local M = {
 	["folke/noice.nvim"] = { event = "VimEnter", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } },
 	["j-hui/fidget.nvim"] = {},
 	["lewis6991/impatient.nvim"] = {},
-	["ggandor/lightspeed.nvim"] = {},
+	["ggandor/leap.nvim"] = {},
 	["windwp/nvim-autopairs"] = {},
 	["ahmedkhalf/project.nvim"] = {},
 	["lukas-reineke/indent-blankline.nvim"] = {},
@@ -110,7 +110,7 @@ local M = {
 	["windwp/nvim-ts-autotag"] = {},
 	["kevinhwang91/nvim-ufo"] = { requires = "kevinhwang91/promise-async" },
 	["anuvyklack/pretty-fold.nvim"] = {},
-	["glepnir/zephyr-nvim"] = {},
+	["pineapplegiant/spaceduck"] = {},
 }
 
 packer.startup(function(use)

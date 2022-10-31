@@ -35,4 +35,8 @@ end)
 
 local cmp_config = lsp.defaults.cmp_config(require("packages.lsp.cmp"))
 cmp.setup(cmp_config)
+
+-- require("lspconfig").handlers["textDocument/hover"] = vim.lsp.with(lsp.defaults.hover, {
+--     border = "rounded",
+-- })
 lsp.setup()
