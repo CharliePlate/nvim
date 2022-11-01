@@ -95,10 +95,9 @@ local mappings = {
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Copilot panel<cr>", "Copilot" },
 		C = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Git Diff",
-		},
+		d = { "<cmd>DiffviewOpen<cr>", "Open Diff" },
+		D = { "<cmd>DiffviewClose<cr>", "Close Diff" },
+		h = { "<cmd>DiffviewFileHistory %<cr>", "File History" },
 	},
 	l = {
 		name = "LSP",

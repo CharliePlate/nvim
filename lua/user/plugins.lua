@@ -111,6 +111,7 @@ local M = {
 	["kevinhwang91/nvim-ufo"] = { requires = "kevinhwang91/promise-async" },
 	["anuvyklack/pretty-fold.nvim"] = {},
 	["pineapplegiant/spaceduck"] = {},
+	["sindrets/diffview.nvim"] = { requires = "nvim-lua/plenary.nvim" },
 }
 
 packer.startup(function(use)
