@@ -13,10 +13,25 @@ end
 local function lsp_client_names()
 	local clients = {}
 	for _, client in pairs(vim.lsp.buf_get_clients(0)) do
-		clients[#clients + 1] = client.name
+		--check if null ls client
+		if client.name ~= "null-ls" and client.name ~= "copilot" then
+			table.insert(clients, client.name)
+		end
 	end
-
 	return table.concat(clients, " ")
+end
+
+local function icons()
+	local str = ""
+	for _, client in pairs(vim.lsp.buf_get_clients(0)) do
+		if client.name == "copilot" then
+			str = str .. " "
+		end
+		if client.name == "null-ls" then
+			str = str .. ""
+		end
+	end
+	return str
 end
 
 local function show_macro_recording()
@@ -27,6 +42,29 @@ local function show_macro_recording()
 		return "Recording @" .. recording_register
 	end
 end
+
+vim.api.nvim_create_autocmd("RecordingEnter", {
+	callback = function()
+		lualine.refresh({
+			place = { "statusline" },
+		})
+	end,
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+	callback = function()
+		local timer = vim.loop.new_timer()
+		timer:start(
+			50,
+			0,
+			vim.schedule_wrap(function()
+				lualine.refresh({
+					place = { "statusline" },
+				})
+			end)
+		)
+	end,
+})
 
 lualine.setup({
 	options = {
@@ -63,8 +101,8 @@ lualine.setup({
 		lualine_b = { show_macro_recording },
 		lualine_c = { getRelativePath },
 		lualine_x = { "branch", "diff", "diagnostics" },
-		lualine_y = { "progress" },
-		lualine_z = {},
+		lualine_y = { icons },
+		lualine_z = { lsp_client_names },
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -75,37 +113,7 @@ lualine.setup({
 		lualine_z = {},
 	},
 	tabline = {},
-	winbar = {
-		lualine_a = { require("nvim-navic").get_location, condition = require("nvim-navic").is_active },
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = { lsp_client_names },
-		lualine_z = {},
-	},
+	winbar = {},
 	inactive_winbar = {},
 	extensions = {},
-})
-
-vim.api.nvim_create_autocmd("RecordingEnter", {
-	callback = function()
-		lualine.refresh({
-			place = { "statusline" },
-		})
-	end,
-})
-
-vim.api.nvim_create_autocmd("RecordingLeave", {
-	callback = function()
-		local timer = vim.loop.new_timer()
-		timer:start(
-			50,
-			0,
-			vim.schedule_wrap(function()
-				lualine.refresh({
-					place = { "statusline" },
-				})
-			end)
-		)
-	end,
 })

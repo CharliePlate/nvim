@@ -112,6 +112,7 @@ local M = {
 	["anuvyklack/pretty-fold.nvim"] = {},
 	["pineapplegiant/spaceduck"] = {},
 	["sindrets/diffview.nvim"] = { requires = "nvim-lua/plenary.nvim" },
+	["smjonas/inc-rename.nvim"] = {},
 }
 
 packer.startup(function(use)
