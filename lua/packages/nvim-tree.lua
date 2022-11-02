@@ -10,6 +10,9 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 nvim_tree.setup({
 	open_on_setup = true,
 	update_focused_file = {
@@ -69,5 +72,8 @@ nvim_tree.setup({
 	filters = {
 		custom = { ".git" },
 		exclude = { ".gitignore" },
+	},
+	open_files = {
+		quit_on_open = true,
 	},
 })

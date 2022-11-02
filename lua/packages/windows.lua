@@ -3,13 +3,9 @@ if not status_ok then
 	return
 end
 
-vim.o.winwidth = 15
-vim.o.winminwidth = 5
-vim.o.equalalways = false
-
 windows.setup({
 	autowidth = {
-		enable = true,
+		enable = false,
 		winwidth = 5,
 		filetype = {
 			help = 2,

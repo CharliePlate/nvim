@@ -15,8 +15,8 @@ local setup = {
 			text_objects = false, -- help for text objects triggered after entering an operator
 			windows = false, -- default bindings on <c-w>
 			nav = false, -- misc bindings to work with windows
-			z = true, -- bindings for folds, spelling and others prefixed with z
-			g = false, -- bindings for prefixed with g
+			z = false, -- bindings for folds, spelling and others prefixed with z
+			g = true, -- bindings for prefixed with g
 		},
 		spelling = { enabled = false, suggestions = 20 }, -- use which-key for spelling hints
 	},
@@ -109,7 +109,7 @@ local mappings = {
 		q = { vim.diagnostic.setloclist, "Quickfix" },
 		r = { ":IncRename " .. vim.fn.expand("<cword>"), "Rename" },
 		s = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
-		b = { "<cmd>require('typebreak').start()<cr>", "Typebreak" },
+		b = { "<cmd>lua require('typebreak').start()<cr>", "Typebreak" },
 		e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
 	},
 
@@ -157,6 +157,12 @@ local mappings = {
 		l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
 		x = { "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Exit" },
+	},
+	["n"] = {
+		name = "Notes",
+		s = { "<cmd> lua require'scratch'.scratch()<cr>", "Scratch" },
+		n = { "<cmd> lua require'scratch'.scratchWithName()<cr>", "Scratch With Name" },
+		o = { "<cmd> lua require'scratch'.openScratch()<cr>", "Open Scratch" },
 	},
 }
 
