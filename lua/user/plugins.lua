@@ -48,7 +48,7 @@ local M = {
 	["karb94/neoscroll.nvim"] = {},
 	["m-demare/hlargs.nvim"] = {},
 	["nvim-lualine/lualine.nvim"] = {},
-	["folke/noice.nvim"] = { event = "VimEnter", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } },
+	["folke/noice.nvim"] = { requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } },
 	["lewis6991/impatient.nvim"] = {},
 	["ggandor/leap.nvim"] = {},
 	["windwp/nvim-autopairs"] = {},
@@ -110,6 +110,8 @@ local M = {
 	["sindrets/diffview.nvim"] = { requires = "nvim-lua/plenary.nvim" },
 	["smjonas/inc-rename.nvim"] = {},
 	["buidler-hub/react-nextjs-snippets"] = {},
+	["bluz71/vim-nightfly-guicolors"] = {},
+	["yioneko/nvim-yati"] = {},
 }
 
 packer.startup(function(use)
