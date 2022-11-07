@@ -21,7 +21,18 @@ configs.setup({
 	autotag = {
 		enable = true,
 	},
-	indent = { enable = true, disable = { "python", "css" } },
+	indent = { enable = false, disable = { "python", "css" } },
+	yati = {
+		enable = true,
+		disable = { "python" },
+		default_lazy = true,
+		-- Determine the fallback method used when we cannot calculate indent by tree-sitter
+		--   "auto": fallback to vim auto indent
+		--   "asis": use current indent as-is
+		--   "cindent": see `:h cindent()`
+		-- Or a custom function return the final indent result.
+		default_fallback = "auto",
+	},
 	rainbow = {
 		enable = true,
 	},
