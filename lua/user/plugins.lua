@@ -109,6 +109,7 @@ local M = {
 	["pineapplegiant/spaceduck"] = {},
 	["sindrets/diffview.nvim"] = { requires = "nvim-lua/plenary.nvim" },
 	["smjonas/inc-rename.nvim"] = {},
+	["buidler-hub/react-nextjs-snippets"] = {},
 }
 
 packer.startup(function(use)

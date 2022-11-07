@@ -32,7 +32,7 @@ return {
 		cvs = false,
 		["."] = false,
 	},
-	copilot_node_command = "node", -- Node version must be < 18
+	copilot_node_command = "/Users/charlieplate/.nvm/versions/node/v16.18.1/bin/node",
 	plugin_manager_path = vim.fn.stdpath("data") .. "/site/pack/packer",
 	server_opts_overrides = {},
 }

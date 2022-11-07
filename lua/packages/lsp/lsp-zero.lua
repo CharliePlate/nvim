@@ -29,14 +29,10 @@ local f = require("packages.lsp.lsp_functions")
 
 lsp.on_attach(function(client, bufnr)
 	f.format_on_save_attach(client, bufnr)
-	f.navic(client, bufnr)
 	f.lsp_highlight_document(client)
 end)
 
 local cmp_config = lsp.defaults.cmp_config(require("packages.lsp.cmp"))
 cmp.setup(cmp_config)
 
--- require("lspconfig").handlers["textDocument/hover"] = vim.lsp.with(lsp.defaults.hover, {
---     border = "rounded",
--- })
 lsp.setup()
