@@ -73,7 +73,9 @@ nvim_tree.setup({
 		custom = { ".git" },
 		exclude = { ".gitignore" },
 	},
-	open_files = {
-		quit_on_open = true,
+	actions = {
+		open_file = {
+			quit_on_open = true,
+		},
 	},
 })

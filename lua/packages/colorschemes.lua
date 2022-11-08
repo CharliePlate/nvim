@@ -1,41 +1,41 @@
--- local colors = require("kanagawa.colors").setup()
+local colors = require("kanagawa.colors").setup()
 --
--- local overrides = {
--- 	Hlargs = vim.tbl_extend("force", { fg = "#EA8181" }, { italic = true }),
--- 	FloatBorder = { fg = "#7E9CD8", bg = colors.bg },
--- 	Pmenu = { fg = "#223249", bg = colors.bg },
--- 	NavicIconsFile = { fg = "#FF9E3B", bg = colors.bg },
--- 	NavicIconsModule = { fg = "#7FB4CA", bg = colors.bg },
--- 	NavicIconsNamespace = { fg = "#A3D4D5", bg = colors.bg },
--- 	NavicIconsPackage = { fg = "#FF9E3B" },
--- 	NavicIconsClass = { fg = "#FF9E3B" },
--- 	NavicIconsMethod = { fg = "#76946A" },
--- 	NavicIconsProperty = { fg = "#A3D4D5" },
--- 	NavicIconsField = { fg = "#FFA066" },
--- 	NavicIconsConstructor = { fg = "#E46876" },
--- 	NavicIconsEnum = { fg = "#D27E99" },
--- 	NavicIconsInterface = { fg = "#E6C384" },
--- 	NavicIconsFunction = { fg = "#7E9CD8" },
--- 	NavicIconsString = { fg = "#98BB6C" },
--- 	NavicIconsBoolean = { fg = "#FFA066" },
--- 	NavicIconsArray = { fg = "#DCA561" },
--- 	NavicIconsObject = { fg = "#C34043" },
--- 	NavicIconsKey = { fg = "#43242B" },
--- 	NavicIconsNull = { fg = "#DCA561" },
--- 	NavicIconsEnumMember = { fg = "#54546D" },
--- 	NavicIconsStruct = { fg = "#7FB4CA" },
--- 	NavicIconsEvent = { fg = "#E46876" },
--- 	NavicIconsOperator = { fg = "#FFA066" },
--- 	NavicIconsTypeParameter = { fg = "#7AA89F" },
--- 	NavicText = { fg = "#C8C093" },
--- 	NavicSeparator = { fg = "#C8C093", bg = "#2A2A37" },
--- 	NavicIcons = { fg = "#C8C093", bg = "#2A2A37" },
--- 	DapBreakpoint = { fg = "#E82424" },
--- 	WinBar = { fg = "#1F1F28", bg = "#1F1F28" },
--- }
---
--- require("kanagawa").setup({ globalStatus = true, overrides = overrides, ... })
--- vim.cmd("colorscheme kanagawa")
+local overrides = {
+	Hlargs = vim.tbl_extend("force", { fg = "#EA8181" }, { italic = true }),
+	FloatBorder = { fg = "#7E9CD8", bg = colors.bg },
+	Pmenu = { fg = "#223249", bg = colors.bg },
+	NavicIconsFile = { fg = "#FF9E3B", bg = colors.bg },
+	NavicIconsModule = { fg = "#7FB4CA", bg = colors.bg },
+	NavicIconsNamespace = { fg = "#A3D4D5", bg = colors.bg },
+	NavicIconsPackage = { fg = "#FF9E3B" },
+	NavicIconsClass = { fg = "#FF9E3B" },
+	NavicIconsMethod = { fg = "#76946A" },
+	NavicIconsProperty = { fg = "#A3D4D5" },
+	NavicIconsField = { fg = "#FFA066" },
+	NavicIconsConstructor = { fg = "#E46876" },
+	NavicIconsEnum = { fg = "#D27E99" },
+	NavicIconsInterface = { fg = "#E6C384" },
+	NavicIconsFunction = { fg = "#7E9CD8" },
+	NavicIconsString = { fg = "#98BB6C" },
+	NavicIconsBoolean = { fg = "#FFA066" },
+	NavicIconsArray = { fg = "#DCA561" },
+	NavicIconsObject = { fg = "#C34043" },
+	NavicIconsKey = { fg = "#43242B" },
+	NavicIconsNull = { fg = "#DCA561" },
+	NavicIconsEnumMember = { fg = "#54546D" },
+	NavicIconsStruct = { fg = "#7FB4CA" },
+	NavicIconsEvent = { fg = "#E46876" },
+	NavicIconsOperator = { fg = "#FFA066" },
+	NavicIconsTypeParameter = { fg = "#7AA89F" },
+	NavicText = { fg = "#C8C093" },
+	NavicSeparator = { fg = "#C8C093", bg = "#2A2A37" },
+	NavicIcons = { fg = "#C8C093", bg = "#2A2A37" },
+	DapBreakpoint = { fg = "#E82424" },
+	WinBar = { fg = "#1F1F28", bg = "#1F1F28" },
+}
+
+require("kanagawa").setup({ globalStatus = true, overrides = overrides, ... })
+vim.cmd("colorscheme kanagawa")
 
 -- vim.cmd("colorscheme tokyonight-night")
 -- vim.cmd("colorscheme gruvbox-flat")
@@ -82,4 +82,4 @@
 -- vim.cmd("highlight NavicSeparator guifg=" .. colors[1])
 -- vim.cmd("highlight NavicIcons guifg=" .. colors[1])
 
-vim.cmd("colorscheme nightfly")
+-- vim.cmd("colorscheme nightfly")
