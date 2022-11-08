@@ -112,6 +112,7 @@ local M = {
 	["buidler-hub/react-nextjs-snippets"] = {},
 	["bluz71/vim-nightfly-guicolors"] = {},
 	["yioneko/nvim-yati"] = {},
+	["jose-elias-alvarez/typescript.nvim"] = {},
 }
 
 packer.startup(function(use)

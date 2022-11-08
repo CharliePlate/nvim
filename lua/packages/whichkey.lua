@@ -58,12 +58,12 @@ local setup = {
 -- see https://neovim.io/doc/user/map.html#:map-cmd
 
 local mappings = {
-	["q"] = { "<cmd>lua require('packages.functions').smart_quit()<CR>", "Quit" },
+	q = { "<cmd>lua require('packages.functions').smart_quit()<CR>", "Quit" },
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
-	["x"] = { "<cmd>Bdelete<CR>", "Close Buffer" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-	["w"] = {
+	x = { "<cmd>Bdelete<CR>", "Close Buffer" },
+	h = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	e = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+	w = {
 		name = "Window",
 		m = { "<cmd>WindowsMaximize<cr>", "Maximize" },
 		x = { "<cmd>hide<cr>", "Hide" },
@@ -146,7 +146,7 @@ local mappings = {
 			"Find Tab",
 		},
 	},
-	["d"] = {
+	d = {
 		name = "Debug",
 		b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
 		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
@@ -158,7 +158,7 @@ local mappings = {
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
 		x = { "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Exit" },
 	},
-	["n"] = {
+	n = {
 		name = "Notes",
 		s = { "<cmd> lua require'scratch'.scratch()<cr>", "Scratch" },
 		n = { "<cmd> lua require'scratch'.scratchWithName()<cr>", "Scratch With Name" },
