@@ -12,11 +12,11 @@ return {
 	},
 	suggestion = {
 		enabled = true,
-		auto_trigger = true,
+		auto_trigger = false,
 		debounce = 75,
 		keymap = {
 			accept = "jl",
-			next = "<M-L>",
+			next = "jj",
 			prev = "<M-H>",
 			dismiss = "<C-]>",
 		},

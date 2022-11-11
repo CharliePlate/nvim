@@ -28,6 +28,16 @@ local M = {
 		["<A-j>"] = ":move '>+1<CR>gv-gv",
 		["<A-k>"] = ":move '<-2<CR>gv-gv",
 	},
+	lsp = {
+		["K"] = ":lua vim.lsp.buf.hover()<CR>",
+		["gd"] = ":lua vim.lsp.buf.definition()<CR>",
+		["gD"] = ":lua vim.lsp.buf.declaration()<CR>",
+		["gr"] = ":Telescope lsp_references<CR>",
+		["gi"] = ":lua vim.lsp.buf.implementation()<CR>",
+		["[d"] = ":lua vim.diagnostic.goto_prev()<CR>",
+		["]d"] = ":lua vim.diagnostic.goto_next()<CR>",
+		["gl"] = "<cmd>lua vim.diagnostic.open_float()<CR>",
+	},
 }
 
 -- inverse of modeMap without a function
@@ -36,6 +46,7 @@ local modeMap = {
 	insert = "i",
 	visual = "v",
 	visual_block = "x",
+	lsp = "n",
 }
 
 local function setKeymap(mode, key, value)
