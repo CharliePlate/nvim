@@ -37,6 +37,7 @@ local M = {
 		["[d"] = ":lua vim.diagnostic.goto_prev()<CR>",
 		["]d"] = ":lua vim.diagnostic.goto_next()<CR>",
 		["gl"] = "<cmd>lua vim.diagnostic.open_float()<CR>",
+		["gv"] = "<cmd>vsplit<CR>gd",
 	},
 }
 

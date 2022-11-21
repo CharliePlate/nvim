@@ -113,6 +113,7 @@ local M = {
 	["bluz71/vim-nightfly-guicolors"] = {},
 	["yioneko/nvim-yati"] = {},
 	["jose-elias-alvarez/typescript.nvim"] = {},
+	["mxsdev/nvim-dap-vscode-js"] = {},
 }
 
 packer.startup(function(use)

@@ -113,6 +113,12 @@ local mappings = {
 		e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
 	},
 
+	m = {
+		name = "Harpoon",
+		a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add File" },
+		t = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Toggle Quick Menu" },
+	},
+
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope buffers<cr>", "Buffers" },

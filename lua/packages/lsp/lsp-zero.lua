@@ -34,5 +34,13 @@ end)
 
 local cmp_config = lsp.defaults.cmp_config(require("packages.lsp.cmp"))
 cmp.setup(cmp_config)
-
 lsp.setup()
+
+require("typescript").setup({
+	server = {
+		on_attach = function(client, bufnr)
+			f.format_on_save_attach(client, bufnr)
+			f.lsp_highlight_document(client)
+		end,
+	},
+})
