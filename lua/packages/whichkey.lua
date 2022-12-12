@@ -101,6 +101,7 @@ local mappings = {
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
 		w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+		f = { "<cmd>lua vim.lsp.buf.format({timeout_ms=5000})<cr>", "Format" },
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>Mason<cr>", "Mason Info" },
 		j = { vim.diagnostic.goto_next, "Next Diagnostic" },
@@ -111,12 +112,6 @@ local mappings = {
 		s = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
 		b = { "<cmd>lua require('typebreak').start()<cr>", "Typebreak" },
 		e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
-	},
-
-	m = {
-		name = "Harpoon",
-		a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add File" },
-		t = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Toggle Quick Menu" },
 	},
 
 	s = {

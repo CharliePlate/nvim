@@ -6,14 +6,15 @@ end
 local function getRelativePath()
 	local path = vim.fn.expand("%:p")
 	local cwd = vim.fn.getcwd()
-	local relativePath = path:gsub(cwd, "")
+	local relativePath = vim.fn.fnamemodify(path, ":~:.:h")
+	local relativeCwd = vim.fn.fnamemodify(cwd, ":~:.:h")
+	local relativePath = string.gsub(relativePath, relativeCwd, "")
 	return relativePath
 end
 
 local function lsp_client_names()
 	local clients = {}
 	for _, client in pairs(vim.lsp.buf_get_clients(0)) do
-		--check if null ls client
 		if client.name ~= "null-ls" and client.name ~= "copilot" then
 			table.insert(clients, client.name)
 		end
@@ -69,7 +70,7 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "spaceduck",
+		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { right = "", left = "" },
 		disabled_filetypes = {

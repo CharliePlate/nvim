@@ -106,14 +106,13 @@ local M = {
 	["windwp/nvim-ts-autotag"] = {},
 	["kevinhwang91/nvim-ufo"] = { requires = "kevinhwang91/promise-async" },
 	["anuvyklack/pretty-fold.nvim"] = {},
-	["pineapplegiant/spaceduck"] = {},
 	["sindrets/diffview.nvim"] = { requires = "nvim-lua/plenary.nvim" },
 	["smjonas/inc-rename.nvim"] = {},
 	["buidler-hub/react-nextjs-snippets"] = {},
-	["bluz71/vim-nightfly-guicolors"] = {},
 	["yioneko/nvim-yati"] = {},
 	["jose-elias-alvarez/typescript.nvim"] = {},
 	["mxsdev/nvim-dap-vscode-js"] = {},
+	["goolord/alpha-nvim"] = {},
 }
 
 packer.startup(function(use)
