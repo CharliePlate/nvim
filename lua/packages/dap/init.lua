@@ -71,8 +71,6 @@ vim.fn.sign_define("DapBreakpoint", M.breakpoint)
 vim.fn.sign_define("DapBreakpointRejected", M.breakpoint_rejected)
 vim.fn.sign_define("DapStopped", M.stopped)
 
-require("packages.dap.tsDap")
-
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
 end

@@ -27,9 +27,16 @@ end
 
 local f = require("packages.lsp.lsp_functions")
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
+
 lsp.on_attach(function(client, bufnr)
 	f.format_on_save_attach(client, bufnr)
 	f.lsp_highlight_document(client)
+	capabilities = vim.tbl_deep_extend("keep", capabilities, client.server_capabilities)
 end)
 
 local cmp_config = lsp.defaults.cmp_config(require("packages.lsp.cmp"))

@@ -158,17 +158,32 @@ local mappings = {
 		l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
 		x = { "<cmd>lua require'dap'.terminate()<cr><cmd>lua require'dapui'.close()<cr>", "Exit" },
-	},
-	n = {
-		name = "Notes",
-		s = { "<cmd> lua require'scratch'.scratch()<cr>", "Scratch" },
-		n = { "<cmd> lua require'scratch'.scratchWithName()<cr>", "Scratch With Name" },
-		o = { "<cmd> lua require'scratch'.openScratch()<cr>", "Open Scratch" },
+		k = { "<cmd>lua require('dapui').eval() <cr>", "Eval" },
+		K = { "<cmd>lua require('dapui').eval()<cr><cmd>lua require('dapui').eval()<cr>", "Eval and Enter Hover" },
 	},
 }
 
+--write a function that will get the currently selected value in visual mode
+local function eval(enterHover)
+	local selection = require("packages.functions").visual_selection()
+	if not enterHover then
+		print(string.gsub(selection, "!", ""))
+		require("dapui").eval(string.gsub(selection, "!", ""))
+	else
+		require("dapui").eval(string.gsub(selection, "!", ""))
+		require("dapui").eval(string.gsub(selection, "!", ""))
+	end
+end
+
 local vmappings = {
 	["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
+	d = {
+		name = "Debug",
+
+		t = { "<cmd>lua require('packages.functions').visual_selection()<cr>", "test" },
+		k = { "<cmd>lua require('dapui').eval()<cr>", "Eval" },
+		K = { "<cmd>lua require('dapui').eval()<cr><cmd>lua require('dapui').eval()<cr>", "Eval and Enter Hover" },
+	},
 }
 
 local opts = {
@@ -181,7 +196,7 @@ local opts = {
 }
 
 local vopts = {
-	mode = "v", -- NORMAL mode
+	mode = "v", -- Visual mode
 	prefix = "<leader>",
 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps

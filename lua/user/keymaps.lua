@@ -11,6 +11,7 @@ local M = {
 		["<C-Left>"] = ":vertical resize +2<CR>",
 		["<M-k>"] = "<Esc>:m .-2<CR>==",
 		["<M-j>"] = "<Esc>:m .+1<CR>==",
+		["<Esc>"] = ":noh<CR>",
 	},
 	insert = {
 		["jk"] = "<C-o>a",

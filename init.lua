@@ -1,3 +1,4 @@
+require("user/plugins")
 require("packages.lualine")
 require("packages.autocmd")
 require("packages/colorschemes")
@@ -20,10 +21,15 @@ require("packages.navic")
 require("packages.telescope")
 require("packages.indent-blank-line")
 require("packages.alpha")
-require("user/plugins")
 require("user/settings")
 require("user/keymaps")
 require("packages.treesitter")
 require("packages.comment")
 require("packages.leap")
 require("packages.surround")
+
+if vim.g.neovide then
+	vim.opt.guifont = { "ComicCodeLigatures Nerd Font Mono", ":h17" }
+	vim.g.neovide_underline_automatic_scaling = 1
+	vim.g.neovide_cursor_trail_size = 0.5
+end
