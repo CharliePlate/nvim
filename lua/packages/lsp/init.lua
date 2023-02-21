@@ -1,3 +1,6 @@
-require("packages.lsp.lsp-zero")
+require("neodev").setup({})
+require("mason").setup()
+require("packages.lsp.lspconfig")
 require("packages.lsp.null-ls")
 require("packages.lsp.lsp_signature")
+require("packages.lsp.cmp")

@@ -113,6 +113,10 @@ local M = {
 	["jose-elias-alvarez/typescript.nvim"] = {},
 	["mxsdev/nvim-dap-vscode-js"] = {},
 	["goolord/alpha-nvim"] = {},
+	["David-Kunz/jester"] = {},
+	["arturgoms/moonbow.nvim"] = {},
+	["folke/neodev.nvim"] = {},
+	["onsails/lspkind.nvim"] = {},
 }
 
 packer.startup(function(use)

@@ -12,6 +12,9 @@ local M = {
 		["<M-k>"] = "<Esc>:m .-2<CR>==",
 		["<M-j>"] = "<Esc>:m .+1<CR>==",
 		["<Esc>"] = ":noh<CR>",
+		["<C-u>"] = "<C-u>zz",
+		["<C-f>"] = "<C-f>zz",
+		["<C-d>"] = "<C-d>zz",
 	},
 	insert = {
 		["jk"] = "<C-o>a",

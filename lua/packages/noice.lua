@@ -92,7 +92,7 @@ noice.setup({
 	},
 	lsp = {
 		progress = {
-			enabled = true,
+			enabled = false,
 			-- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
 			-- See the section on formatting for more details on how to customize.
 			format = "lsp_progress",
@@ -101,11 +101,8 @@ noice.setup({
 			view = "mini",
 		},
 		override = {
-			-- override the default lsp markdown formatter with Noice
 			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-			-- override the lsp markdown formatter with Noice
 			["vim.lsp.util.stylize_markdown"] = true,
-			-- override cmp documentation with Noice (needs the other options to work)
 			["cmp.entry.get_documentation"] = true,
 		},
 		hover = {
@@ -130,6 +127,13 @@ noice.setup({
 			view = "notify",
 			opts = {},
 		},
+
+		messages = {
+			enabled = true,
+			view = "notify",
+			view_warn = false, -- view for warnings
+		},
+
 		-- defaults for hover and signature help
 		documentation = {
 			view = "hover",
@@ -176,9 +180,14 @@ noice.setup({
 	},
 	throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
 	views = {}, ---@see section on views
-	routes = {}, --- @see section on routes
-	status = {}, --- @see section on statusline components
-	format = {}, --- @see section on formatting
+	---@type NoiceRouteConfig[]
+	status = {},
+	routes = {
+		-- {
+		-- 	filter = { event = "lsp", find = "" },
+		-- 	opts = { skip = true },
+		-- },
+	},
 })
 
 local status_ok, inc_rename = pcall(require, "inc_rename")

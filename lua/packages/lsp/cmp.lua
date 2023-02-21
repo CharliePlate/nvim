@@ -8,6 +8,11 @@ if not snip_status_ok then
 	return
 end
 
+local kind_ok, lspkind = pcall(require, "lspkind")
+if not kind_ok then
+	return
+end
+
 local compare = require("cmp.config.compare")
 
 require("luasnip/loaders/from_vscode").lazy_load()
@@ -22,15 +27,13 @@ local icons = require("packages.icons")
 -- 	},
 -- })
 
-local kind_icons = icons.kind
-
 vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
 vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
 vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
 
 vim.g.cmp_active = true
 
-local M = {
+cmp.setup({
 	enabled = function()
 		local buftype = vim.api.nvim_buf_get_option(0, "buftype")
 		if buftype == "prompt" then
@@ -55,8 +58,8 @@ local M = {
 		["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		["<m-o>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-Space>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
+		["<m-o>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
 		-- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 		["<C-c>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
@@ -86,40 +89,36 @@ local M = {
 	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			-- Kind icons
-			vim_item.kind = kind_icons[vim_item.kind]
+		format = lspkind.cmp_format({
+			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			before = function(entry, vim_item) -- for tailwind css autocomplete
+				if vim_item.kind == "Color" and entry.completion_item.documentation then
+					local _, _, r, g, b = string.find(entry.completion_item.documentation, "^rgb%((%d+), (%d+), (%d+)")
+					if r then
+						local color = string.format("%02x", r) .. string.format("%02x", g) .. string.format("%02x", b)
+						local group = "Tw_" .. color
+						if vim.fn.hlID(group) < 1 then
+							vim.api.nvim_set_hl(0, group, { fg = "#" .. color })
+						end
+						vim_item.kind = "■" -- or "⬤" or anything
+						vim_item.kind_hl_group = group
+						return vim_item
+					end
+				end
 
-			if entry.source.name == "cmp_tabnine" then
-				vim_item.kind = icons.misc.Robot
-				vim_item.kind_hl_group = "CmpItemKindTabnine"
-			end
-			if entry.source.name == "emoji" then
-				vim_item.kind = icons.misc.Smiley
-				vim_item.kind_hl_group = "CmpItemKindEmoji"
-			end
+				vim_item.kind = icons.kind[vim_item.kind]
+				vim_item.menu = ({
+					nvim_lsp = "",
+					nvim_lua = "",
+					luasnip = "",
+					buffer = "",
+					path = "",
+					emoji = "",
+				})[entry.source.name]
 
-			if entry.source.name == "lab.quick_data" then
-				vim_item.kind = icons.misc.CircuitBoard
-				vim_item.kind_hl_group = "CmpItemKindConstant"
-			end
-
-			if entry.source.name == "copilot" then
-				vim_item.kind = icons.git.Octoface
-				vim_item.kind_hl_group = "CmpItemKindCopilot"
-			end
-
-			-- NOTE: order matters
-			vim_item.menu = ({
-				nvim_lsp = "",
-				nvim_lua = "",
-				luasnip = "",
-				buffer = "",
-				path = "",
-				emoji = "",
-			})[entry.source.name]
-			return vim_item
-		end,
+				return vim_item
+			end,
+		}),
 	},
 
 	sources = {
@@ -165,7 +164,7 @@ local M = {
 	experimental = {
 		ghost_text = true,
 	},
-}
+})
 
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
@@ -175,9 +174,3 @@ cmp.setup.cmdline(":", {
 		{ name = "cmdline" },
 	}),
 })
-
-cmp.setup({
-	mapping = {},
-})
-
-return M

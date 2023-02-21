@@ -163,18 +163,6 @@ local mappings = {
 	},
 }
 
---write a function that will get the currently selected value in visual mode
-local function eval(enterHover)
-	local selection = require("packages.functions").visual_selection()
-	if not enterHover then
-		print(string.gsub(selection, "!", ""))
-		require("dapui").eval(string.gsub(selection, "!", ""))
-	else
-		require("dapui").eval(string.gsub(selection, "!", ""))
-		require("dapui").eval(string.gsub(selection, "!", ""))
-	end
-end
-
 local vmappings = {
 	["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
 	d = {

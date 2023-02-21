@@ -14,7 +14,7 @@ end
 
 local function lsp_client_names()
 	local clients = {}
-	for _, client in pairs(vim.lsp.buf_get_clients(0)) do
+	for _, client in pairs(vim.lsp.get_active_clients()) do
 		if client.name ~= "null-ls" and client.name ~= "copilot" then
 			table.insert(clients, client.name)
 		end
@@ -23,15 +23,27 @@ local function lsp_client_names()
 end
 
 local function icons()
-	local str = ""
-	for _, client in pairs(vim.lsp.buf_get_clients(0)) do
-		if client.name == "copilot" then
-			str = str .. " "
-		end
-		if client.name == "null-ls" then
-			str = str .. ""
+	local icons_table = {
+		["copilot"] = " ",
+		["null-ls"] = "",
+	}
+
+	local icons_order = { "copilot", "null-ls" }
+
+	local icons = {}
+	for _, client in pairs(vim.lsp.get_active_clients()) do
+		if icons_table[client.name] then
+			table.insert(icons, icons_table[client.name])
 		end
 	end
+
+	local str = ""
+	for _, icon_name in ipairs(icons_order) do
+		if icons_table[icon_name] then
+			str = str .. icons_table[icon_name]
+		end
+	end
+
 	return str
 end
 
