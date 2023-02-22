@@ -8,8 +8,8 @@ local function getRelativePath()
 	local cwd = vim.fn.getcwd()
 	local relativePath = vim.fn.fnamemodify(path, ":~:.:h")
 	local relativeCwd = vim.fn.fnamemodify(cwd, ":~:.:h")
-	local relativePath = string.gsub(relativePath, relativeCwd, "")
-	return relativePath
+	local getPath = string.gsub(relativePath, relativeCwd, "")
+	return getPath
 end
 
 local function lsp_client_names()
@@ -30,10 +30,10 @@ local function icons()
 
 	local icons_order = { "copilot", "null-ls" }
 
-	local icons = {}
+	local icon = {}
 	for _, client in pairs(vim.lsp.get_active_clients()) do
 		if icons_table[client.name] then
-			table.insert(icons, icons_table[client.name])
+			table.insert(icon, icons_table[client.name])
 		end
 	end
 
@@ -67,6 +67,9 @@ vim.api.nvim_create_autocmd("RecordingEnter", {
 vim.api.nvim_create_autocmd("RecordingLeave", {
 	callback = function()
 		local timer = vim.loop.new_timer()
+		if timer == nil then
+			return
+		end
 		timer:start(
 			50,
 			0,

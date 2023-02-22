@@ -5,7 +5,7 @@ end
 
 local formatting = null_ls.builtins.formatting
 null_ls.setup({
-	debug = true,
+	debug = false,
 	sources = {
 		formatting.prettier.with({
 			filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "css", "vue", "svelte" },

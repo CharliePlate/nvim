@@ -45,7 +45,6 @@ local M = {
 	["wbthomason/packer.nvim"] = {},
 	["kyazdani42/nvim-tree.lua"] = { requires = { "kyazdani42/nvim-web-devicons" } },
 	["RRethy/vim-illuminate"] = {},
-	["karb94/neoscroll.nvim"] = {},
 	["m-demare/hlargs.nvim"] = {},
 	["nvim-lualine/lualine.nvim"] = {},
 	["folke/noice.nvim"] = { requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } },
@@ -65,7 +64,6 @@ local M = {
 	["kdheepak/lazygit.nvim"] = {},
 	["lewis6991/gitsigns.nvim"] = {},
 	["kylechui/nvim-surround"] = {},
-	["VonHeikemen/lsp-zero.nvim"] = {},
 	["jose-elias-alvarez/null-ls.nvim"] = {},
 	["neovim/nvim-lspconfig"] = {},
 	["williamboman/mason.nvim"] = {},
@@ -79,7 +77,6 @@ local M = {
 	["hrsh7th/cmp-nvim-lua"] = {},
 	["L3MON4D3/LuaSnip"] = {},
 	["rafamadriz/friendly-snippets"] = {},
-	["SmiteshP/nvim-navic"] = {},
 	["b0o/SchemaStore.nvim"] = {},
 	["akinsho/toggleterm.nvim"] = {},
 	["folke/which-key.nvim"] = {},
@@ -90,11 +87,9 @@ local M = {
 	["leoluz/nvim-dap-go"] = {},
 	["mfussenegger/nvim-dap"] = {},
 	["rcarriga/nvim-dap-ui"] = {},
-	["theHamsta/nvim-dap-virtual-text"] = {},
 	["anuvyklack/windows.nvim"] = { requires = { "anuvyklack/middleclass", "anuvyklack/animation.nvim" } },
 	["nvim-telescope/telescope.nvim"] = { requires = { "nvim-lua/plenary.nvim" } },
 	["LukasPietzschmann/telescope-tabs"] = {},
-	["nagy135/typebreak.nvim"] = {},
 	["zbirenbaum/copilot.lua"] = {
 		event = "VimEnter",
 		config = function()
@@ -117,6 +112,7 @@ local M = {
 	["arturgoms/moonbow.nvim"] = {},
 	["folke/neodev.nvim"] = {},
 	["onsails/lspkind.nvim"] = {},
+	["fenetikm/falcon"] = {},
 }
 
 packer.startup(function(use)

@@ -42,10 +42,20 @@ local lsp_flags = {
 	debounce_text_changes = 150,
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
+
 local buildConfig = function(serverName, options)
 	local server_config = vim.tbl_deep_extend("force", {
 		on_attach = on_attach,
 		flags = lsp_flags,
+		handlers = {
+			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = "rounded" }),
+		},
+		capabilities = capabilities,
 	}, options or {})
 
 	require("lspconfig")[serverName].setup(server_config)
@@ -53,10 +63,10 @@ end
 
 -- set up servers
 buildConfig("jsonls", require("packages.lsp.settings.jsonls"))
-buildConfig("tsserver")
 buildConfig("lua_ls", require("packages.lsp.settings.lua_ls"))
-buildConfig("svelte")
 buildConfig("tailwindcss", require("packages.lsp.settings.tailwindcss"))
+buildConfig("tsserver")
+buildConfig("svelte")
 buildConfig("gopls")
 
 local signs = {
@@ -71,9 +81,7 @@ for _, sign in ipairs(signs) do
 end
 
 local config = {
-	-- disable virtual text
 	virtual_text = false,
-	-- show signs
 	signs = {
 		active = signs,
 	},
