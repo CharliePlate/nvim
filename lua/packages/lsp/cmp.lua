@@ -122,7 +122,6 @@ cmp.setup({
 	},
 
 	sources = {
-		-- { name = "copilot", group_index = 2 },
 		{ name = "nvim_lsp", group_index = 2 },
 		{ name = "luasnip", group_index = 2 },
 		{ name = "buffer", group_index = 2 },
@@ -132,10 +131,7 @@ cmp.setup({
 	sorting = {
 		priority_weight = 2,
 		comparators = {
-			-- require("copilot_cmp.comparators").prioritize,
-			-- require("copilot_cmp.comparators").score,
 			cmp.config.compare.offset,
-			-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
 			compare.exact,
 			compare.score,
 			compare.recently_used,
@@ -151,7 +147,6 @@ cmp.setup({
 		select = false,
 	},
 	window = {
-
 		documentation = {
 			border = "rounded",
 			winhighlight = "NormalFloat:Pmenu,FloatBorder:FloatBorder,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",

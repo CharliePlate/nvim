@@ -38,9 +38,11 @@ local options = {
 	foldlevel = 99,
 	foldenable = true,
 	foldlevelstart = 99,
+	autoread = true,
 }
 
 vim.opt.shortmess:append("c")
+vim.g.disable_rainbow_hover = 1
 
 for k, v in pairs(options) do
 	vim.opt[k] = v

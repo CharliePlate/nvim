@@ -43,7 +43,10 @@ packer.init({
 
 local M = {
 	["wbthomason/packer.nvim"] = {},
-	["kyazdani42/nvim-tree.lua"] = { requires = { "kyazdani42/nvim-web-devicons" } },
+	["kyazdani42/nvim-tree.lua"] = {
+		requires = { "kyazdani42/nvim-web-devicons" },
+		commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
+	},
 	["RRethy/vim-illuminate"] = {},
 	["m-demare/hlargs.nvim"] = {},
 	["nvim-lualine/lualine.nvim"] = {},
@@ -113,6 +116,24 @@ local M = {
 	["folke/neodev.nvim"] = {},
 	["onsails/lspkind.nvim"] = {},
 	["fenetikm/falcon"] = {},
+	["alanfortlink/blackjack.nvim"] = {},
+	["cameron-wags/rainbow_csv.nvim"] = {
+		config = function()
+			require("rainbow_csv").setup()
+		end,
+	},
+	["barrett-ruth/live-server.nvim"] = {
+		config = function()
+			require("live-server").setup({})
+		end,
+	},
+	["roobert/tailwindcss-colorizer-cmp.nvim"] = {
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 1,
+			})
+		end,
+	},
 }
 
 packer.startup(function(use)

@@ -5,6 +5,7 @@ vim.cmd([[
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
 		autocmd BufWinEnter *  :lua vim.wo.fillchars='eob: '
+		autocmd BufWinEnter * :set endofline
   augroup end
 
   augroup remember_folds

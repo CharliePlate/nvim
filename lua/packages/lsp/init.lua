@@ -5,5 +5,4 @@ require("mason-lspconfig").setup({
 })
 require("packages.lsp.lspconfig")
 require("packages.lsp.null-ls")
-require("packages.lsp.lsp_signature")
 require("packages.lsp.cmp")

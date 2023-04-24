@@ -5,14 +5,25 @@ end
 
 local formatting = null_ls.builtins.formatting
 null_ls.setup({
-	debug = false,
+	debug = true,
 	sources = {
 		formatting.prettier.with({
-			filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "css", "vue", "svelte" },
+			filetypes = {
+				"javascript",
+				"typescript",
+				"javascriptreact",
+				"typescriptreact",
+				"css",
+				"vue",
+				"svelte",
+				"json",
+				"jsonc",
+			},
+			command = "/Users/charlieplate/.yarn/bin/prettier",
 		}),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		formatting.gofmt,
-		formatting.jq,
+		formatting.xmlformat,
 	},
 })

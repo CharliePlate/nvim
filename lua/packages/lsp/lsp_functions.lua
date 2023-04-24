@@ -6,8 +6,6 @@ local lsp_highlight_document = function(client)
 	illuminate.on_attach(client)
 end
 
-local NON_NULL_LS_FORMAT = { "svelte" }
-
 local format = function(bufnr, client)
 	vim.lsp.buf.format({
 		filter = function(client)

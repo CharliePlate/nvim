@@ -15,6 +15,7 @@ context.setup({
 			"for",
 			"while",
 			"if",
+			"try",
 			-- 'switch',
 			-- 'case',
 		},
