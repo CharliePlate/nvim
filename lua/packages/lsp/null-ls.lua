@@ -5,7 +5,7 @@ end
 
 local formatting = null_ls.builtins.formatting
 null_ls.setup({
-	debug = true,
+	debug = false,
 	sources = {
 		formatting.prettier.with({
 			filetypes = {
@@ -18,6 +18,16 @@ null_ls.setup({
 				"svelte",
 				"json",
 				"jsonc",
+			},
+			extra_args = {
+				"--trailing-comma",
+				"all",
+				"--print-width",
+				"120",
+				"--bracket-spacing",
+				"false",
+				"--html-whitespace-sensitivity",
+				"ignore",
 			},
 			command = "/Users/charlieplate/.yarn/bin/prettier",
 		}),

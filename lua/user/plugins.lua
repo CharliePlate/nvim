@@ -134,6 +134,10 @@ local M = {
 			})
 		end,
 	},
+	["yioneko/nvim-vtsls"] = {},
+	["lvimuser/lsp-inlayhints.nvim"] = {
+		branch = "anticonceal",
+	},
 }
 
 packer.startup(function(use)

@@ -29,6 +29,14 @@ dapui.setup({
 			size = 0.30,
 			position = "bottom",
 		},
+		{
+			elements = {
+				{ id = "watches", size = 0.40 },
+				{ id = "stacks", size = 0.60 },
+			},
+			size = 0.30,
+			position = "right",
+		},
 	},
 	floating = {
 		max_height = 0.9,

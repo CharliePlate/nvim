@@ -1,8 +1,11 @@
+local lsp_functions = require("packages.lsp.lsp_functions")
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
+
+require("lsp-inlayhints").setup()
 
 local f = require("packages.lsp.lsp_functions")
 
@@ -13,6 +16,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	f.format_on_save_attach(client, bufnr)
 	f.lsp_highlight_document(client)
+	require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
 local lsp_flags = {
@@ -31,7 +35,10 @@ local buildConfig = function(serverName, options)
 		on_attach = on_attach,
 		flags = lsp_flags,
 		handlers = {
-			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { silent = true, border = "rounded" }),
+			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				silent = true,
+				border = "rounded",
+			}),
 		},
 		capabilities = capabilities,
 	}, options or {})
@@ -48,9 +55,11 @@ buildConfig("cssls", require("packages.lsp.settings.cssls"))
 buildConfig("html")
 
 buildConfig("tailwindcss", require("packages.lsp.settings.tailwindcss"))
-buildConfig("tsserver")
-buildConfig("pylizer")
--- buildConfig("emmet_ls", require("packages.lsp.settings.emmet_ls"))
+-- buildConfig("tsserver", require("packages.lsp.settings.tsserver"))
+buildConfig("pylsp")
+
+require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+buildConfig("vtsls", require("packages.lsp.settings.vtsls"))
 buildConfig("vuels")
 buildConfig("prismals")
 

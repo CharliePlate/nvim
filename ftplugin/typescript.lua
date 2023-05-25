@@ -38,7 +38,7 @@ require("jester").setup({
 	dap = { -- debug adapter configuration
 		type = "pwa-node",
 		request = "launch",
-		port = 9229,
+		port = 9231,
 		name = "Jest",
 		sourceMaps = true,
 		protocol = "inspector",

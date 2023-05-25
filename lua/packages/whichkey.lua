@@ -139,12 +139,15 @@ local mappings = {
 		i = { ":TSConfigInfo<cr>", "Info" },
 	},
 	t = {
-		name = "Tabs",
+		name = "T",
 		n = { "<cmd>tabnew %<cr>", "New Tab" },
 		c = { "<cmd>tabclose<cr>", "Close Tab" },
 		t = {
 			"<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
 			"Find Tab",
+		},
+		h = {
+			{ "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Inlay Hints" },
 		},
 	},
 	d = {

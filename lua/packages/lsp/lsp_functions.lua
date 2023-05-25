@@ -30,11 +30,20 @@ local format_on_save_attach = function(client, bufnr)
 		})
 	end
 end
+local function organize_imports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+		title = "",
+	}
+	vim.lsp.buf.execute_command(params)
+end
 
 local M = {
 	lsp_highlight_document = lsp_highlight_document,
 	format = format,
 	format_on_save_attach = format_on_save_attach,
+	organize_imports = organize_imports,
 }
 
 return M
